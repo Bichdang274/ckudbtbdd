@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-Item *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\dangb\" -Recurse -Filter \"gradle-wrapper.jar\" -ErrorAction SilentlyContinue | Where-Object { $_.Length -gt 10000 } | Select-Object FullName, Length)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\dangb\\\\Downloads\\\\FlashcardApp_Android_v14\\\\FlashcardApp\" -Recurse -Force)",
+      "Bash(Select-Object FullName)",
+      "Bash(gradlew.bat clean *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\dangb\\\\Downloads\\\\FlashcardApp_Android_v14\\\\FlashcardApp\\\\app\\\\src\\\\main\" -Recurse -File | Where-Object { \\($_.Name -match \"\\(profile|account|user\\)\"\\) -and \\($_.Extension -eq \".java\" -or $_.Extension -eq \".xml\"\\) } | Select-Object FullName)",
+      "PowerShell(Remove-Item *)",
+      "Bash(Get-ChildItem -Recurse -Filter \"*.kt\" \"C:\\\\Users\\\\dangb\\\\Downloads\\\\FlashcardApp_Android_v14\\\\FlashcardApp\\\\app\\\\src\")",
+      "PowerShell(head *)",
+      "PowerShell(Get-ChildItem -Recurse \"C:\\\\Users\\\\dangb\\\\Downloads\\\\FlashcardApp_Android_v14\\\\FlashcardApp\\\\app\\\\src\\\\main\\\\java\" | Where-Object { !$_.PSIsContainer } | Select-Object FullName)",
+      "PowerShell(Get-ChildItem -Recurse \"C:\\\\Users\\\\dangb\\\\Downloads\\\\FlashcardApp_Android_v14\\\\FlashcardApp\\\\app\\\\src\\\\main\\\\java\" | Where-Object { !$_.PSIsContainer } | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\dangb\\\\Downloads\\\\FlashcardApp_Android_v14\\\\FlashcardApp\\\\app\\\\src\\\\main\\\\res\\\\color\" | ForEach-Object { $_.FullName })"
+    ]
+  }
+}

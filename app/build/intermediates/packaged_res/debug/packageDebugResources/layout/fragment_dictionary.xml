@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_dark">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_gradient_dark"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="56dp" android:paddingBottom="16dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Từ điển" android:textColor="@color/text_primary"
+                        android:textSize="24sp" android:textStyle="bold"/>
+                    <TextView android:id="@+id/tvWordCount"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="0 từ vựng"
+                        android:textColor="@color/text_secondary" android:textSize="13sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                style="@style/InputStyle">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="match_parent" android:layout_height="52dp"
+                    android:hint="🔍  Tìm kiếm từ vựng..."
+                    android:textColor="@color/text_primary" android:textColorHint="@color/text_hint"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- Filter chips -->
+        <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="16dp">
+            <LinearLayout android:id="@+id/chipContainer"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal"/>
+        </HorizontalScrollView>
+
+        <!-- Selection bar -->
+        <LinearLayout android:id="@+id/selectionBar"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp" android:paddingVertical="8dp"
+            android:background="@color/bg_surface_2"
+            android:visibility="gone">
+            <TextView android:id="@+id/tvSelectedCount"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0 từ đã chọn"
+                android:textColor="@color/text_primary" android:textSize="13sp" android:textStyle="bold"/>
+            <TextView android:id="@+id/btnSelectAll"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Chọn tất cả"
+                android:textColor="#A78BFA" android:textSize="12sp"
+                android:padding="8dp"/>
+            <TextView android:id="@+id/btnClearSel"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Bỏ chọn"
+                android:textColor="@color/text_secondary" android:textSize="12sp"
+                android:padding="8dp"/>
+        </LinearLayout>
+
+        <!-- Empty state -->
+        <TextView android:id="@+id/tvEmpty"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Không tìm thấy kết quả"
+            android:textColor="@color/text_secondary" android:textSize="14sp"
+            android:gravity="center" android:padding="32dp"
+            android:visibility="gone"/>
+
+        <!-- Words list -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvWords"
+            android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingBottom="100dp"
+            android:clipToPadding="false"/>
+    </LinearLayout>
+
+    <!-- Floating add-to-folder bar -->
+    <LinearLayout android:id="@+id/floatingBar"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:background="@drawable/bg_floating_bar"
+        android:layout_margin="16dp"
+        android:paddingHorizontal="16dp" android:paddingVertical="14dp"
+        android:visibility="gone">
+        <TextView android:id="@+id/tvFloatingLabel"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thêm 0 từ vào thư mục"
+            android:textColor="@color/white" android:textSize="14sp"/>
+        <Button android:id="@+id/btnAddToFolder"
+            android:layout_width="wrap_content" android:layout_height="40dp"
+            android:text="Thêm vào"
+            android:textColor="@color/white" android:textSize="13sp"
+            android:background="@drawable/bg_btn_gradient"
+            android:stateListAnimator="@null"/>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
