@@ -4,8 +4,9 @@ package com.example.flashcardapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,60 +25,82 @@ public final class FragmentDictionaryBinding implements ViewBinding {
   private final CoordinatorLayout rootView;
 
   @NonNull
-  public final Button btnAddToFolder;
+  public final ImageButton btnLookupClose;
 
   @NonNull
-  public final TextView btnClearSel;
+  public final ImageButton btnLookupSave;
 
   @NonNull
-  public final TextView btnSelectAll;
+  public final ImageButton btnLookupSpeak;
 
   @NonNull
-  public final LinearLayout chipContainer;
+  public final LinearLayout cardLookup;
 
   @NonNull
   public final TextInputEditText etSearch;
 
   @NonNull
-  public final LinearLayout floatingBar;
+  public final LinearLayout lookupContent;
 
   @NonNull
-  public final RecyclerView rvWords;
+  public final ProgressBar lookupProgress;
 
   @NonNull
-  public final LinearLayout selectionBar;
+  public final RecyclerView rvSavedWords;
 
   @NonNull
   public final TextView tvEmpty;
 
   @NonNull
-  public final TextView tvFloatingLabel;
+  public final TextView tvLookupDef;
 
   @NonNull
-  public final TextView tvSelectedCount;
+  public final TextView tvLookupError;
+
+  @NonNull
+  public final TextView tvLookupExample;
+
+  @NonNull
+  public final TextView tvLookupPhonetic;
+
+  @NonNull
+  public final TextView tvLookupPos;
+
+  @NonNull
+  public final TextView tvLookupWord;
+
+  @NonNull
+  public final TextView tvSavedLabel;
 
   @NonNull
   public final TextView tvWordCount;
 
   private FragmentDictionaryBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull Button btnAddToFolder, @NonNull TextView btnClearSel, @NonNull TextView btnSelectAll,
-      @NonNull LinearLayout chipContainer, @NonNull TextInputEditText etSearch,
-      @NonNull LinearLayout floatingBar, @NonNull RecyclerView rvWords,
-      @NonNull LinearLayout selectionBar, @NonNull TextView tvEmpty,
-      @NonNull TextView tvFloatingLabel, @NonNull TextView tvSelectedCount,
+      @NonNull ImageButton btnLookupClose, @NonNull ImageButton btnLookupSave,
+      @NonNull ImageButton btnLookupSpeak, @NonNull LinearLayout cardLookup,
+      @NonNull TextInputEditText etSearch, @NonNull LinearLayout lookupContent,
+      @NonNull ProgressBar lookupProgress, @NonNull RecyclerView rvSavedWords,
+      @NonNull TextView tvEmpty, @NonNull TextView tvLookupDef, @NonNull TextView tvLookupError,
+      @NonNull TextView tvLookupExample, @NonNull TextView tvLookupPhonetic,
+      @NonNull TextView tvLookupPos, @NonNull TextView tvLookupWord, @NonNull TextView tvSavedLabel,
       @NonNull TextView tvWordCount) {
     this.rootView = rootView;
-    this.btnAddToFolder = btnAddToFolder;
-    this.btnClearSel = btnClearSel;
-    this.btnSelectAll = btnSelectAll;
-    this.chipContainer = chipContainer;
+    this.btnLookupClose = btnLookupClose;
+    this.btnLookupSave = btnLookupSave;
+    this.btnLookupSpeak = btnLookupSpeak;
+    this.cardLookup = cardLookup;
     this.etSearch = etSearch;
-    this.floatingBar = floatingBar;
-    this.rvWords = rvWords;
-    this.selectionBar = selectionBar;
+    this.lookupContent = lookupContent;
+    this.lookupProgress = lookupProgress;
+    this.rvSavedWords = rvSavedWords;
     this.tvEmpty = tvEmpty;
-    this.tvFloatingLabel = tvFloatingLabel;
-    this.tvSelectedCount = tvSelectedCount;
+    this.tvLookupDef = tvLookupDef;
+    this.tvLookupError = tvLookupError;
+    this.tvLookupExample = tvLookupExample;
+    this.tvLookupPhonetic = tvLookupPhonetic;
+    this.tvLookupPos = tvLookupPos;
+    this.tvLookupWord = tvLookupWord;
+    this.tvSavedLabel = tvSavedLabel;
     this.tvWordCount = tvWordCount;
   }
 
@@ -108,27 +131,27 @@ public final class FragmentDictionaryBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnAddToFolder;
-      Button btnAddToFolder = ViewBindings.findChildViewById(rootView, id);
-      if (btnAddToFolder == null) {
+      id = R.id.btnLookupClose;
+      ImageButton btnLookupClose = ViewBindings.findChildViewById(rootView, id);
+      if (btnLookupClose == null) {
         break missingId;
       }
 
-      id = R.id.btnClearSel;
-      TextView btnClearSel = ViewBindings.findChildViewById(rootView, id);
-      if (btnClearSel == null) {
+      id = R.id.btnLookupSave;
+      ImageButton btnLookupSave = ViewBindings.findChildViewById(rootView, id);
+      if (btnLookupSave == null) {
         break missingId;
       }
 
-      id = R.id.btnSelectAll;
-      TextView btnSelectAll = ViewBindings.findChildViewById(rootView, id);
-      if (btnSelectAll == null) {
+      id = R.id.btnLookupSpeak;
+      ImageButton btnLookupSpeak = ViewBindings.findChildViewById(rootView, id);
+      if (btnLookupSpeak == null) {
         break missingId;
       }
 
-      id = R.id.chipContainer;
-      LinearLayout chipContainer = ViewBindings.findChildViewById(rootView, id);
-      if (chipContainer == null) {
+      id = R.id.cardLookup;
+      LinearLayout cardLookup = ViewBindings.findChildViewById(rootView, id);
+      if (cardLookup == null) {
         break missingId;
       }
 
@@ -138,21 +161,21 @@ public final class FragmentDictionaryBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.floatingBar;
-      LinearLayout floatingBar = ViewBindings.findChildViewById(rootView, id);
-      if (floatingBar == null) {
+      id = R.id.lookupContent;
+      LinearLayout lookupContent = ViewBindings.findChildViewById(rootView, id);
+      if (lookupContent == null) {
         break missingId;
       }
 
-      id = R.id.rvWords;
-      RecyclerView rvWords = ViewBindings.findChildViewById(rootView, id);
-      if (rvWords == null) {
+      id = R.id.lookupProgress;
+      ProgressBar lookupProgress = ViewBindings.findChildViewById(rootView, id);
+      if (lookupProgress == null) {
         break missingId;
       }
 
-      id = R.id.selectionBar;
-      LinearLayout selectionBar = ViewBindings.findChildViewById(rootView, id);
-      if (selectionBar == null) {
+      id = R.id.rvSavedWords;
+      RecyclerView rvSavedWords = ViewBindings.findChildViewById(rootView, id);
+      if (rvSavedWords == null) {
         break missingId;
       }
 
@@ -162,15 +185,45 @@ public final class FragmentDictionaryBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvFloatingLabel;
-      TextView tvFloatingLabel = ViewBindings.findChildViewById(rootView, id);
-      if (tvFloatingLabel == null) {
+      id = R.id.tvLookupDef;
+      TextView tvLookupDef = ViewBindings.findChildViewById(rootView, id);
+      if (tvLookupDef == null) {
         break missingId;
       }
 
-      id = R.id.tvSelectedCount;
-      TextView tvSelectedCount = ViewBindings.findChildViewById(rootView, id);
-      if (tvSelectedCount == null) {
+      id = R.id.tvLookupError;
+      TextView tvLookupError = ViewBindings.findChildViewById(rootView, id);
+      if (tvLookupError == null) {
+        break missingId;
+      }
+
+      id = R.id.tvLookupExample;
+      TextView tvLookupExample = ViewBindings.findChildViewById(rootView, id);
+      if (tvLookupExample == null) {
+        break missingId;
+      }
+
+      id = R.id.tvLookupPhonetic;
+      TextView tvLookupPhonetic = ViewBindings.findChildViewById(rootView, id);
+      if (tvLookupPhonetic == null) {
+        break missingId;
+      }
+
+      id = R.id.tvLookupPos;
+      TextView tvLookupPos = ViewBindings.findChildViewById(rootView, id);
+      if (tvLookupPos == null) {
+        break missingId;
+      }
+
+      id = R.id.tvLookupWord;
+      TextView tvLookupWord = ViewBindings.findChildViewById(rootView, id);
+      if (tvLookupWord == null) {
+        break missingId;
+      }
+
+      id = R.id.tvSavedLabel;
+      TextView tvSavedLabel = ViewBindings.findChildViewById(rootView, id);
+      if (tvSavedLabel == null) {
         break missingId;
       }
 
@@ -180,9 +233,10 @@ public final class FragmentDictionaryBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentDictionaryBinding((CoordinatorLayout) rootView, btnAddToFolder,
-          btnClearSel, btnSelectAll, chipContainer, etSearch, floatingBar, rvWords, selectionBar,
-          tvEmpty, tvFloatingLabel, tvSelectedCount, tvWordCount);
+      return new FragmentDictionaryBinding((CoordinatorLayout) rootView, btnLookupClose,
+          btnLookupSave, btnLookupSpeak, cardLookup, etSearch, lookupContent, lookupProgress,
+          rvSavedWords, tvEmpty, tvLookupDef, tvLookupError, tvLookupExample, tvLookupPhonetic,
+          tvLookupPos, tvLookupWord, tvSavedLabel, tvWordCount);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

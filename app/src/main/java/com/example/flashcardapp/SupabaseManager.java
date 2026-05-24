@@ -209,6 +209,35 @@ public class SupabaseManager {
             @Header("Prefer") String prefer,
             @Query("id") String id,
             @Body ProfileUpdateBody body);
+
+        @DELETE("auth/v1/user")
+        Call<Void> deleteUser(
+            @Header("Authorization") String auth,
+            @Header("apikey") String apiKey);
+
+        @DELETE("rest/v1/card_progress")
+        Call<Void> deleteProgressByUser(
+            @Header("Authorization") String auth,
+            @Header("apikey") String apiKey,
+            @Query("user_id") String userId);
+
+        @DELETE("rest/v1/study_sessions")
+        Call<Void> deleteSessionsByUser(
+            @Header("Authorization") String auth,
+            @Header("apikey") String apiKey,
+            @Query("user_id") String userId);
+
+        @DELETE("rest/v1/folders")
+        Call<Void> deleteFoldersByUser(
+            @Header("Authorization") String auth,
+            @Header("apikey") String apiKey,
+            @Query("user_id") String userId);
+
+        @DELETE("rest/v1/profiles")
+        Call<Void> deleteProfileById(
+            @Header("Authorization") String auth,
+            @Header("apikey") String apiKey,
+            @Query("id") String id);
     }
 
     // ─── Singleton ───────────────────────────────────────────────

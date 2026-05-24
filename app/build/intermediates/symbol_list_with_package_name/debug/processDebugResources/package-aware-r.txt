@@ -3114,8 +3114,10 @@ drawable bg_option_correct
 drawable bg_option_default
 drawable bg_option_wrong
 drawable bg_otp_box
+drawable bg_stat_green
 drawable bg_stat_orange
 drawable bg_stat_purple
+drawable bg_stat_teal
 drawable bg_stat_yellow
 drawable bg_tile_default
 drawable bg_tile_matched
@@ -3374,7 +3376,6 @@ id btnAddToFolder
 id btnBack
 id btnBackHome
 id btnBackToHome
-id btnClearSel
 id btnDelete
 id btnGame
 id btnHome
@@ -3382,6 +3383,9 @@ id btnKnow
 id btnLearning
 id btnLogin
 id btnLogout
+id btnLookupClose
+id btnLookupSave
+id btnLookupSpeak
 id btnNext
 id btnOption0
 id btnOption1
@@ -3395,7 +3399,6 @@ id btnRegister
 id btnReset
 id btnRestart
 id btnSave
-id btnSelectAll
 id btnSend
 id btnShuffle
 id btnSpeak
@@ -3408,6 +3411,7 @@ id cancel_button
 id cardBack
 id cardForm
 id cardFront
+id cardLookup
 id cardQuestion
 id carryVelocity
 id center
@@ -3420,7 +3424,6 @@ id chain2
 id chains
 id checkbox
 id checked
-id chipContainer
 id chronometer
 id circle_center
 id circularProgress
@@ -3525,7 +3528,6 @@ id fitXY
 id fixed
 id flip
 id floating
-id floatingBar
 id forever
 id forgotPasswordDest
 id fragment_container_view_tag
@@ -3585,6 +3587,8 @@ id listMode
 id list_item
 id locale
 id loginDest
+id lookupContent
+id lookupProgress
 id lottie_layer_name
 id ltr
 id m3_side_sheet
@@ -3710,6 +3714,7 @@ id postLayout
 id pressed
 id progressBar
 id progressBarOverall
+id progressTotal
 id progress_circular
 id progress_horizontal
 id quizContent
@@ -3733,9 +3738,9 @@ id row_index_key
 id rtl
 id rvCards
 id rvFolders
+id rvSavedWords
 id rvSets
 id rvTiles
-id rvWords
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3759,7 +3764,6 @@ id search_voice_btn
 id sectionFolders
 id select_dialog_listview
 id selected
-id selectionBar
 id selection_type
 id setDetailDest
 id sharedValueSet
@@ -3867,6 +3871,9 @@ id tvComboOverlay
 id tvCompleteEmoji
 id tvCompleteSubtitle
 id tvCompleteTitle
+id tvDarkModeSubtitle
+id tvDefinition
+id tvDeleteAccount
 id tvEmail
 id tvEmoji
 id tvEmpty
@@ -3874,11 +3881,16 @@ id tvEmptyFolders
 id tvEnglish
 id tvExample
 id tvExampleVi
-id tvFloatingLabel
 id tvGreeting
 id tvKnownCount
 id tvLearningCount
 id tvLogin
+id tvLookupDef
+id tvLookupError
+id tvLookupExample
+id tvLookupPhonetic
+id tvLookupPos
+id tvLookupWord
 id tvMatchedCheck
 id tvMoves
 id tvName
@@ -3886,8 +3898,10 @@ id tvPairs
 id tvPairsCounter
 id tvPct
 id tvPhonetic
+id tvPos
 id tvProgress
 id tvProgressLabel
+id tvProgressPercent
 id tvProgressText
 id tvQuestion
 id tvQuestionSub
@@ -3899,8 +3913,8 @@ id tvResultScore
 id tvResultSubtitle
 id tvResultTime
 id tvResultTitle
+id tvSavedLabel
 id tvScore
-id tvSelectedCount
 id tvSessions
 id tvSetTitle
 id tvSetsCount
@@ -3920,6 +3934,7 @@ id tvTitle
 id tvTitleVi
 id tvTotal
 id tvVietnamese
+id tvWord
 id tvWordCount
 id tvWordsLearned
 id unchecked
@@ -4105,6 +4120,7 @@ layout item_card_set
 layout item_flashcard
 layout item_folder
 layout item_matching_tile
+layout item_saved_word
 layout item_search_result
 layout m3_alert_dialog
 layout m3_alert_dialog_actions

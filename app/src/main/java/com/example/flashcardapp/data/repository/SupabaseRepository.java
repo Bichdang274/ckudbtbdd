@@ -15,8 +15,10 @@ public class SupabaseRepository {
     private final SharedPreferences prefs;
     private final SupabaseManager.SupabaseApi api;
     private final String apiKey;
+    private final Context appContext;
 
     public SupabaseRepository(Context context) {
+        appContext = context.getApplicationContext();
         prefs = context.getSharedPreferences("flashcard_prefs", Context.MODE_PRIVATE);
         api = SupabaseManager.getApi();
         apiKey = BuildConfig.SUPABASE_KEY;
@@ -67,6 +69,29 @@ public class SupabaseRepository {
             .remove("user_email")
             .remove("user_name")
             .apply();
+    }
+
+    public void deleteAccount() throws Exception {
+        String uid = getCurrentUserId();
+        if (uid == null) throw new Exception("Chưa đăng nhập");
+        String token = getToken();
+
+        try { api.deleteProgressByUser(token, apiKey, "eq." + uid).execute(); } catch (Exception ignored) {}
+        try { api.deleteSessionsByUser(token, apiKey, "eq." + uid).execute(); } catch (Exception ignored) {}
+        try { api.deleteFoldersByUser(token, apiKey, "eq." + uid).execute(); } catch (Exception ignored) {}
+        try { api.deleteProfileById(token, apiKey, "eq." + uid).execute(); } catch (Exception ignored) {}
+
+        Response<Void> res = api.deleteUser(token, apiKey).execute();
+        if (!res.isSuccessful()) {
+            String errBody = res.errorBody() != null ? res.errorBody().string() : null;
+            throw new Exception(parseErrorBody(errBody));
+        }
+
+        try {
+            com.example.flashcardapp.data.AppDatabase.getInstance(appContext).clearAllTables();
+        } catch (Exception ignored) {}
+
+        signOut();
     }
 
     public boolean isLoggedIn() { return prefs.contains("access_token"); }
@@ -137,12 +162,35 @@ public class SupabaseRepository {
 
     public List<FlashcardDto> getFlashcardsForFolder(List<String> wordIds) {
         if (wordIds == null || wordIds.isEmpty()) return Collections.emptyList();
-        try {
-            String filter = "in.(" + join(wordIds, ",") + ")";
-            return toFlashcardDtos(api.getFlashcardsByIds(getToken(), apiKey, filter, "*").execute().body());
-        } catch (Exception e) {
-            Log.e("Supabase", "getFlashcardsForFolder FAIL: " + e.getMessage()); return Collections.emptyList();
+        List<String> remoteIds = new ArrayList<>();
+        List<String> localIds = new ArrayList<>();
+        for (String id : wordIds) {
+            if (id.startsWith("dict_")) localIds.add(id);
+            else remoteIds.add(id);
         }
+        List<FlashcardDto> result = new ArrayList<>();
+        if (!remoteIds.isEmpty()) {
+            try {
+                String filter = "in.(" + join(remoteIds, ",") + ")";
+                result.addAll(toFlashcardDtos(api.getFlashcardsByIds(getToken(), apiKey, filter, "*").execute().body()));
+            } catch (Exception e) {
+                Log.e("Supabase", "getFlashcardsForFolder remote FAIL: " + e.getMessage());
+            }
+        }
+        if (!localIds.isEmpty()) {
+            try {
+                List<com.example.flashcardapp.data.entity.SavedWord> local =
+                    com.example.flashcardapp.data.AppDatabase.getInstance(appContext)
+                        .savedWordDao().getByIds(localIds);
+                for (com.example.flashcardapp.data.entity.SavedWord w : local) {
+                    result.add(new FlashcardDto(w.id, "user_dict", w.word, w.definition,
+                        w.phonetic, w.example, "", "📖"));
+                }
+            } catch (Exception e) {
+                Log.e("Room", "getFlashcardsForFolder local FAIL: " + e.getMessage());
+            }
+        }
+        return result;
     }
 
     public Map<String, Integer> getCardCountsPerSet() {

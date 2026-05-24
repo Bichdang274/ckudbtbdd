@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,7 +27,10 @@ public final class FragmentAccountBinding implements ViewBinding {
   public final Button btnLogout;
 
   @NonNull
-  public final Button btnProfile;
+  public final LinearLayout btnProfile;
+
+  @NonNull
+  public final ProgressBar progressTotal;
 
   @NonNull
   public final SwitchMaterial toggleDark;
@@ -40,10 +45,19 @@ public final class FragmentAccountBinding implements ViewBinding {
   public final TextView tvAvatar;
 
   @NonNull
+  public final TextView tvDarkModeSubtitle;
+
+  @NonNull
+  public final TextView tvDeleteAccount;
+
+  @NonNull
   public final TextView tvEmail;
 
   @NonNull
   public final TextView tvName;
+
+  @NonNull
+  public final TextView tvProgressPercent;
 
   @NonNull
   public final TextView tvSessions;
@@ -58,20 +72,26 @@ public final class FragmentAccountBinding implements ViewBinding {
   public final TextView tvWordsLearned;
 
   private FragmentAccountBinding(@NonNull NestedScrollView rootView, @NonNull Button btnLogout,
-      @NonNull Button btnProfile, @NonNull SwitchMaterial toggleDark,
-      @NonNull SwitchMaterial toggleNotification, @NonNull SwitchMaterial toggleSound,
-      @NonNull TextView tvAvatar, @NonNull TextView tvEmail, @NonNull TextView tvName,
+      @NonNull LinearLayout btnProfile, @NonNull ProgressBar progressTotal,
+      @NonNull SwitchMaterial toggleDark, @NonNull SwitchMaterial toggleNotification,
+      @NonNull SwitchMaterial toggleSound, @NonNull TextView tvAvatar,
+      @NonNull TextView tvDarkModeSubtitle, @NonNull TextView tvDeleteAccount,
+      @NonNull TextView tvEmail, @NonNull TextView tvName, @NonNull TextView tvProgressPercent,
       @NonNull TextView tvSessions, @NonNull TextView tvSetsCount, @NonNull TextView tvStreak,
       @NonNull TextView tvWordsLearned) {
     this.rootView = rootView;
     this.btnLogout = btnLogout;
     this.btnProfile = btnProfile;
+    this.progressTotal = progressTotal;
     this.toggleDark = toggleDark;
     this.toggleNotification = toggleNotification;
     this.toggleSound = toggleSound;
     this.tvAvatar = tvAvatar;
+    this.tvDarkModeSubtitle = tvDarkModeSubtitle;
+    this.tvDeleteAccount = tvDeleteAccount;
     this.tvEmail = tvEmail;
     this.tvName = tvName;
+    this.tvProgressPercent = tvProgressPercent;
     this.tvSessions = tvSessions;
     this.tvSetsCount = tvSetsCount;
     this.tvStreak = tvStreak;
@@ -112,8 +132,14 @@ public final class FragmentAccountBinding implements ViewBinding {
       }
 
       id = R.id.btnProfile;
-      Button btnProfile = ViewBindings.findChildViewById(rootView, id);
+      LinearLayout btnProfile = ViewBindings.findChildViewById(rootView, id);
       if (btnProfile == null) {
+        break missingId;
+      }
+
+      id = R.id.progressTotal;
+      ProgressBar progressTotal = ViewBindings.findChildViewById(rootView, id);
+      if (progressTotal == null) {
         break missingId;
       }
 
@@ -141,6 +167,18 @@ public final class FragmentAccountBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvDarkModeSubtitle;
+      TextView tvDarkModeSubtitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvDarkModeSubtitle == null) {
+        break missingId;
+      }
+
+      id = R.id.tvDeleteAccount;
+      TextView tvDeleteAccount = ViewBindings.findChildViewById(rootView, id);
+      if (tvDeleteAccount == null) {
+        break missingId;
+      }
+
       id = R.id.tvEmail;
       TextView tvEmail = ViewBindings.findChildViewById(rootView, id);
       if (tvEmail == null) {
@@ -150,6 +188,12 @@ public final class FragmentAccountBinding implements ViewBinding {
       id = R.id.tvName;
       TextView tvName = ViewBindings.findChildViewById(rootView, id);
       if (tvName == null) {
+        break missingId;
+      }
+
+      id = R.id.tvProgressPercent;
+      TextView tvProgressPercent = ViewBindings.findChildViewById(rootView, id);
+      if (tvProgressPercent == null) {
         break missingId;
       }
 
@@ -178,8 +222,9 @@ public final class FragmentAccountBinding implements ViewBinding {
       }
 
       return new FragmentAccountBinding((NestedScrollView) rootView, btnLogout, btnProfile,
-          toggleDark, toggleNotification, toggleSound, tvAvatar, tvEmail, tvName, tvSessions,
-          tvSetsCount, tvStreak, tvWordsLearned);
+          progressTotal, toggleDark, toggleNotification, toggleSound, tvAvatar, tvDarkModeSubtitle,
+          tvDeleteAccount, tvEmail, tvName, tvProgressPercent, tvSessions, tvSetsCount, tvStreak,
+          tvWordsLearned);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

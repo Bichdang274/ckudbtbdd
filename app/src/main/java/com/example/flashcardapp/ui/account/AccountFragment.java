@@ -93,12 +93,22 @@ public class AccountFragment extends Fragment {
             if (nav != null) nav.navigate(R.id.action_main_to_editProfile);
         });
         b.btnLogout.setOnClickListener(v -> authVM.logout());
+        b.tvDeleteAccount.setOnClickListener(v -> showDeleteAccountDialog());
+
+        authVM.authState.observe(getViewLifecycleOwner(), state -> {
+            if (state instanceof AuthViewModel.AuthState.Error) {
+                Toast.makeText(requireContext(),
+                    ((AuthViewModel.AuthState.Error) state).message, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void setupToggles() {
         b.toggleNotification.setChecked(prefs.getBoolean("notif", false));
         b.toggleSound.setChecked(prefs.getBoolean("sound", true));
-        b.toggleDark.setChecked(prefs.getBoolean("light", false));
+        boolean isDark = prefs.getBoolean("dark", false);
+        b.toggleDark.setChecked(isDark);
+        b.tvDarkModeSubtitle.setText(isDark ? "Đang bật chế độ tối" : "Đang bật chế độ sáng");
 
         b.toggleNotification.setOnCheckedChangeListener((btn, on) -> {
             if (on) {
@@ -127,10 +137,27 @@ public class AccountFragment extends Fragment {
         b.toggleSound.setOnCheckedChangeListener((btn, on) -> prefs.edit().putBoolean("sound", on).apply());
 
         b.toggleDark.setOnCheckedChangeListener((btn, on) -> {
-            prefs.edit().putBoolean("light", on).apply();
-            AppCompatDelegate.setDefaultNightMode(on ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
+            prefs.edit().putBoolean("dark", on).apply();
+            b.tvDarkModeSubtitle.setText(on ? "Đang bật chế độ tối" : "Đang bật chế độ sáng");
+            AppCompatDelegate.setDefaultNightMode(on ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
             requireActivity().recreate();
         });
+    }
+
+    private void showDeleteAccountDialog() {
+        new AlertDialog.Builder(requireContext())
+            .setTitle("Xóa tài khoản")
+            .setMessage("Tất cả dữ liệu học tập, thư mục và tiến trình của bạn sẽ bị xóa vĩnh viễn. Hành động này không thể hoàn tác.")
+            .setPositiveButton("Xóa tài khoản", (d, w) -> {
+                new AlertDialog.Builder(requireContext())
+                    .setTitle("Xác nhận lần cuối")
+                    .setMessage("Bạn có chắc chắn muốn xóa tài khoản không?")
+                    .setPositiveButton("Có, xóa ngay", (d2, w2) -> authVM.deleteAccount())
+                    .setNegativeButton("Hủy", null)
+                    .show();
+            })
+            .setNegativeButton("Hủy", null)
+            .show();
     }
 
     private void enableNotification() {

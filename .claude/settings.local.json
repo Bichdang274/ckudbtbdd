@@ -12,7 +12,13 @@
       "PowerShell(head *)",
       "PowerShell(Get-ChildItem -Recurse \"C:\\\\Users\\\\dangb\\\\Downloads\\\\FlashcardApp_Android_v14\\\\FlashcardApp\\\\app\\\\src\\\\main\\\\java\" | Where-Object { !$_.PSIsContainer } | Select-Object FullName)",
       "PowerShell(Get-ChildItem -Recurse \"C:\\\\Users\\\\dangb\\\\Downloads\\\\FlashcardApp_Android_v14\\\\FlashcardApp\\\\app\\\\src\\\\main\\\\java\" | Where-Object { !$_.PSIsContainer } | ForEach-Object { $_.FullName })",
-      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\dangb\\\\Downloads\\\\FlashcardApp_Android_v14\\\\FlashcardApp\\\\app\\\\src\\\\main\\\\res\\\\color\" | ForEach-Object { $_.FullName })"
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\dangb\\\\Downloads\\\\FlashcardApp_Android_v14\\\\FlashcardApp\\\\app\\\\src\\\\main\\\\res\\\\color\" | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\dangb\\\\Downloads\\\\FlashcardApp_Android_v14\\\\FlashcardApp\\\\app\\\\src\\\\main\\\\res\\\\layout\" | ForEach-Object { $_.Name })",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\dangb\\\\Downloads\\\\FlashcardApp_Android_v14\\\\FlashcardApp\\\\app\\\\src\\\\main\\\\res\\\\drawable\" | ForEach-Object { $_.Name })",
+      "Bash(dir C:\\\\Users\\\\dangb\\\\OneDrive\\\\Máy tính\\\\ảnh *)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\dangb\\\\OneDrive\\\\Máy tính\\\\ảnh\" | ForEach-Object { $_.FullName })",
+      "PowerShell(New-Item *)",
+      "Bash(./gradlew assembleDebug)"
     ]
   }
 }

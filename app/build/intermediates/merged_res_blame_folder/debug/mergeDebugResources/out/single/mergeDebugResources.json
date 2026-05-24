@@ -64,6 +64,10 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_card_dark.xml"
     },
     {
+        "merged": "com.example.flashcardapp-debug-68:/layout_fragment_account.xml.flat",
+        "source": "com.example.flashcardapp-main-70:/layout/fragment_account.xml"
+    },
+    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_verify_otp.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_verify_otp.xml"
     },
@@ -94,6 +98,10 @@
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_item_card_set.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_card_set.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_item_saved_word.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_saved_word.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_toggle_on.xml.flat",
@@ -228,16 +236,8 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_floating_bar.xml"
     },
     {
-        "merged": "com.example.flashcardapp-debug-68:/layout_fragment_register.xml.flat",
-        "source": "com.example.flashcardapp-main-70:/layout/fragment_register.xml"
-    },
-    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_item_flashcard.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_flashcard.xml"
-    },
-    {
-        "merged": "com.example.flashcardapp-debug-68:/color_input_stroke_selector.xml.flat",
-        "source": "com.example.flashcardapp-main-70:/color/input_stroke_selector.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\navigation_nav_inner.xml.flat",
@@ -256,16 +256,20 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_nav_btn.xml"
     },
     {
-        "merged": "com.example.flashcardapp-debug-68:/layout_fragment_login.xml.flat",
-        "source": "com.example.flashcardapp-main-70:/layout/fragment_login.xml"
-    },
-    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_progress_gradient.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\progress_gradient.xml"
     },
     {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_stat_green.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_stat_green.xml"
+    },
+    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\anim_slide_in_right.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\anim\\slide_in_right.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_stat_teal.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_stat_teal.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_otp_box.xml.flat",
@@ -350,6 +354,10 @@
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_home.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\color_input_stroke_selector.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\color\\input_stroke_selector.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\anim_flip_out.xml.flat",

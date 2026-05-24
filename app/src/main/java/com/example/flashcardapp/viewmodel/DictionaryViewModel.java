@@ -5,118 +5,130 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import com.example.flashcardapp.data.model.*;
+import com.example.flashcardapp.DictionaryApiManager;
+import com.example.flashcardapp.data.AppDatabase;
+import com.example.flashcardapp.data.entity.SavedWord;
+import com.example.flashcardapp.data.model.FolderDto;
 import com.example.flashcardapp.data.repository.SupabaseRepository;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class DictionaryViewModel extends AndroidViewModel {
     private final SupabaseRepository repo;
-    private final MutableLiveData<List<FlashcardDto>> _allWords = new MutableLiveData<>();
-    private final MutableLiveData<List<CardSetDto>> _allSets = new MutableLiveData<>();
-    public final LiveData<List<CardSetDto>> allSets = _allSets;
-    private final MutableLiveData<List<FlashcardDto>> _filteredWords = new MutableLiveData<>();
-    public final LiveData<List<FlashcardDto>> filteredWords = _filteredWords;
-    private final MutableLiveData<Set<String>> _selectedIds = new MutableLiveData<>(new HashSet<>());
-    public final LiveData<Set<String>> selectedIds = _selectedIds;
-    private final MutableLiveData<List<FolderDto>> _folders = new MutableLiveData<>();
-    public final LiveData<List<FolderDto>> folders = _folders;
-    private final MutableLiveData<Boolean> _isLoading = new MutableLiveData<>(false);
-    public final LiveData<Boolean> isLoading = _isLoading;
-    private String searchQuery = "";
-    private String activeFilter = "all";
+    private final AppDatabase db;
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
+
+    private final MutableLiveData<List<SavedWord>> _savedWords = new MutableLiveData<>(Collections.emptyList());
+    public final LiveData<List<SavedWord>> savedWords = _savedWords;
+
+    private final MutableLiveData<List<FolderDto>> _folders = new MutableLiveData<>(Collections.emptyList());
+    public final LiveData<List<FolderDto>> folders = _folders;
+
+    private final MutableLiveData<DictionaryApiManager.DictEntry> _lookupResult = new MutableLiveData<>();
+    public final LiveData<DictionaryApiManager.DictEntry> lookupResult = _lookupResult;
+
+    private final MutableLiveData<String> _lookupError = new MutableLiveData<>();
+    public final LiveData<String> lookupError = _lookupError;
+
+    private final MutableLiveData<Boolean> _lookupLoading = new MutableLiveData<>(false);
+    public final LiveData<Boolean> lookupLoading = _lookupLoading;
 
     public DictionaryViewModel(@NonNull Application app) {
         super(app);
         repo = new SupabaseRepository(app);
+        db = AppDatabase.getInstance(app);
         loadAll();
     }
 
     public void loadAll() {
-        _isLoading.setValue(true);
         executor.execute(() -> {
-            List<CardSetDto> sets = repo.getCardSets();
-            List<FlashcardDto> words = repo.getAllFlashcards();
-            List<FolderDto> folds = repo.getFolders();
-            _allSets.postValue(sets);
-            _allWords.postValue(words);
-            _folders.postValue(folds);
-            applyFilterWith(words);
-            _isLoading.postValue(false);
+            _savedWords.postValue(db.savedWordDao().getAll());
+            _folders.postValue(repo.getFolders());
         });
     }
 
-    public void search(String query) { searchQuery = query; applyFilter(); }
-    public void setFilter(String setId) { activeFilter = setId; applyFilter(); }
-
-    private void applyFilter() {
-        applyFilterWith(_allWords.getValue());
+    public void refreshFolders() {
+        executor.execute(() -> _folders.postValue(repo.getFolders()));
     }
 
-    private void applyFilterWith(List<FlashcardDto> allWords) {
-        if (allWords == null) allWords = Collections.emptyList();
-        List<FlashcardDto> result = new ArrayList<>();
-        for (FlashcardDto w : allWords) {
-            if ("all".equals(activeFilter) || activeFilter.equals(w.setId)) result.add(w);
-        }
-        if (!searchQuery.isEmpty()) {
-            List<FlashcardDto> filtered = new ArrayList<>();
-            for (FlashcardDto w : result) {
-                if (w.english.toLowerCase().contains(searchQuery.toLowerCase()) ||
-                    w.vietnamese.toLowerCase().contains(searchQuery.toLowerCase())) {
-                    filtered.add(w);
+    // ─── Dictionary API ──────────────────────────────────
+    public void lookupWord(String word) {
+        if (word == null || word.trim().isEmpty()) return;
+        _lookupLoading.postValue(true);
+        _lookupResult.postValue(null);
+        _lookupError.postValue(null);
+        executor.execute(() -> {
+            try {
+                retrofit2.Response<List<DictionaryApiManager.DictEntry>> res =
+                    DictionaryApiManager.getApi().lookup(word.trim()).execute();
+                if (res.isSuccessful() && res.body() != null && !res.body().isEmpty()) {
+                    _lookupResult.postValue(res.body().get(0));
+                } else {
+                    _lookupError.postValue("Không tìm thấy từ \"" + word.trim() + "\"");
+                }
+            } catch (Exception e) {
+                _lookupError.postValue("Lỗi kết nối mạng");
+            } finally {
+                _lookupLoading.postValue(false);
+            }
+        });
+    }
+
+    public void clearLookup() {
+        _lookupResult.setValue(null);
+        _lookupError.setValue(null);
+    }
+
+    // ─── Saved words ─────────────────────────────────────
+    public void saveCurrentLookup() {
+        DictionaryApiManager.DictEntry entry = _lookupResult.getValue();
+        if (entry == null) return;
+        executor.execute(() -> {
+            // Không lưu trùng
+            SavedWord existing = db.savedWordDao().getByWord(entry.word);
+            if (existing != null) return;
+            String pos = "", def = "", example = "";
+            if (entry.meanings != null && !entry.meanings.isEmpty()) {
+                DictionaryApiManager.DictEntry.Meaning m = entry.meanings.get(0);
+                pos = m.partOfSpeech != null ? m.partOfSpeech : "";
+                if (m.definitions != null && !m.definitions.isEmpty()) {
+                    DictionaryApiManager.DictEntry.Meaning.Definition d = m.definitions.get(0);
+                    def = d.definition != null ? d.definition : "";
+                    example = d.example != null ? d.example : "";
                 }
             }
-            result = filtered;
-        }
-        _filteredWords.postValue(result);
-    }
-
-    public void toggleWord(String cardId) {
-        Set<String> current = _selectedIds.getValue();
-        Set<String> next = current != null ? new HashSet<>(current) : new HashSet<>();
-        if (next.contains(cardId)) next.remove(cardId); else next.add(cardId);
-        _selectedIds.setValue(next);
-    }
-
-    public void selectAll() {
-        List<FlashcardDto> filtered = _filteredWords.getValue();
-        if (filtered == null) return;
-        Set<String> ids = new HashSet<>();
-        for (FlashcardDto f : filtered) ids.add(f.id);
-        _selectedIds.setValue(ids);
-    }
-
-    public void clearSelection() { _selectedIds.setValue(new HashSet<>()); }
-
-    public void addSelectedToFolder(String folderId) {
-        executor.execute(() -> {
-            List<FolderDto> foldList = _folders.getValue();
-            if (foldList == null) return;
-            FolderDto folder = null;
-            for (FolderDto f : foldList) if (folderId.equals(f.id)) { folder = f; break; }
-            if (folder == null) return;
-            List<String> newWordIds = new ArrayList<>(folder.wordIds);
-            Set<String> sel = _selectedIds.getValue();
-            if (sel != null) for (String id : sel) if (!newWordIds.contains(id)) newWordIds.add(id);
-            repo.updateFolderWords(folderId, newWordIds);
-            _folders.postValue(repo.getFolders());
-            _selectedIds.postValue(new HashSet<>());
+            SavedWord sw = new SavedWord(
+                "dict_" + UUID.randomUUID().toString(),
+                entry.word, entry.getPhonetic(), pos, def, example,
+                System.currentTimeMillis()
+            );
+            db.savedWordDao().insert(sw);
+            _savedWords.postValue(db.savedWordDao().getAll());
         });
     }
 
-    public void addWordToFolder(String wordId, String folderId) {
+    public void deleteSavedWord(String id) {
+        executor.execute(() -> {
+            db.savedWordDao().deleteById(id);
+            _savedWords.postValue(db.savedWordDao().getAll());
+        });
+    }
+
+    // ─── Folder operations ───────────────────────────────
+    public void addSavedWordToFolder(SavedWord word, String folderId) {
         executor.execute(() -> {
             List<FolderDto> foldList = _folders.getValue();
             if (foldList == null) return;
             FolderDto folder = null;
             for (FolderDto f : foldList) if (folderId.equals(f.id)) { folder = f; break; }
             if (folder == null) return;
-            List<String> newWordIds = new ArrayList<>(folder.wordIds);
-            if (!newWordIds.contains(wordId)) newWordIds.add(wordId);
-            repo.updateFolderWords(folderId, newWordIds);
+            List<String> newIds = new ArrayList<>(folder.wordIds);
+            if (!newIds.contains(word.id)) newIds.add(word.id);
+            repo.updateFolderWords(folderId, newIds);
             _folders.postValue(repo.getFolders());
         });
     }
@@ -128,18 +140,14 @@ public class DictionaryViewModel extends AndroidViewModel {
         });
     }
 
-    public void createFolderAndAddWord(String name, String wordId) {
+    public void createFolderAndAddWord(String name, SavedWord word) {
         executor.execute(() -> {
             FolderDto folder = repo.createFolder(name, "📁", "#A855F7,#EC4899");
             if (folder != null && folder.id != null) {
-                repo.updateFolderWords(folder.id, Collections.singletonList(wordId));
+                repo.updateFolderWords(folder.id, java.util.Collections.singletonList(word.id));
             }
             _folders.postValue(repo.getFolders());
         });
-    }
-
-    public void refreshFolders() {
-        executor.execute(() -> _folders.postValue(repo.getFolders()));
     }
 
     @Override

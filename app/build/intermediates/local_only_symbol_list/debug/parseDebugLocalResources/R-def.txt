@@ -63,8 +63,10 @@ drawable bg_option_correct
 drawable bg_option_default
 drawable bg_option_wrong
 drawable bg_otp_box
+drawable bg_stat_green
 drawable bg_stat_orange
 drawable bg_stat_purple
+drawable bg_stat_teal
 drawable bg_stat_yellow
 drawable bg_tile_default
 drawable bg_tile_matched
@@ -111,7 +113,6 @@ id btnAddToFolder
 id btnBack
 id btnBackHome
 id btnBackToHome
-id btnClearSel
 id btnDelete
 id btnGame
 id btnHome
@@ -119,6 +120,9 @@ id btnKnow
 id btnLearning
 id btnLogin
 id btnLogout
+id btnLookupClose
+id btnLookupSave
+id btnLookupSpeak
 id btnNext
 id btnOption0
 id btnOption1
@@ -132,7 +136,6 @@ id btnRegister
 id btnReset
 id btnRestart
 id btnSave
-id btnSelectAll
 id btnSend
 id btnShuffle
 id btnSpeak
@@ -141,8 +144,8 @@ id btnVerify
 id cardBack
 id cardForm
 id cardFront
+id cardLookup
 id cardQuestion
-id chipContainer
 id circularProgress
 id completeScreen
 id completionOverlay
@@ -160,7 +163,6 @@ id etOtp5
 id etOtp6
 id etPassword
 id etSearch
-id floatingBar
 id forgotPasswordDest
 id gameContent
 id gameDest
@@ -170,6 +172,8 @@ id innerNavHost
 id ivLogo
 id layoutRateButtons
 id loginDest
+id lookupContent
+id lookupProgress
 id mainDest
 id navHostFragment
 id nav_graph
@@ -177,6 +181,7 @@ id nav_inner
 id onboardingDest
 id progressBar
 id progressBarOverall
+id progressTotal
 id quizContent
 id quizDest
 id registerDest
@@ -184,11 +189,10 @@ id resetPasswordDest
 id resultScreen
 id rvCards
 id rvFolders
+id rvSavedWords
 id rvSets
 id rvTiles
-id rvWords
 id sectionFolders
-id selectionBar
 id setDetailDest
 id splashDest
 id studyContent
@@ -207,6 +211,9 @@ id tvComboOverlay
 id tvCompleteEmoji
 id tvCompleteSubtitle
 id tvCompleteTitle
+id tvDarkModeSubtitle
+id tvDefinition
+id tvDeleteAccount
 id tvEmail
 id tvEmoji
 id tvEmpty
@@ -214,11 +221,16 @@ id tvEmptyFolders
 id tvEnglish
 id tvExample
 id tvExampleVi
-id tvFloatingLabel
 id tvGreeting
 id tvKnownCount
 id tvLearningCount
 id tvLogin
+id tvLookupDef
+id tvLookupError
+id tvLookupExample
+id tvLookupPhonetic
+id tvLookupPos
+id tvLookupWord
 id tvMatchedCheck
 id tvMoves
 id tvName
@@ -226,8 +238,10 @@ id tvPairs
 id tvPairsCounter
 id tvPct
 id tvPhonetic
+id tvPos
 id tvProgress
 id tvProgressLabel
+id tvProgressPercent
 id tvProgressText
 id tvQuestion
 id tvQuestionSub
@@ -239,8 +253,8 @@ id tvResultScore
 id tvResultSubtitle
 id tvResultTime
 id tvResultTitle
+id tvSavedLabel
 id tvScore
-id tvSelectedCount
 id tvSessions
 id tvSetTitle
 id tvSetsCount
@@ -260,6 +274,7 @@ id tvTitle
 id tvTitleVi
 id tvTotal
 id tvVietnamese
+id tvWord
 id tvWordCount
 id tvWordsLearned
 id verifyOTPDest
@@ -286,6 +301,7 @@ layout item_card_set
 layout item_flashcard
 layout item_folder
 layout item_matching_tile
+layout item_saved_word
 layout item_search_result
 menu bottom_nav_menu
 mipmap ic_launcher

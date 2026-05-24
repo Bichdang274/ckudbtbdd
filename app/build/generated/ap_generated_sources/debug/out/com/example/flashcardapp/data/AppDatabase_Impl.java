@@ -19,6 +19,8 @@ import com.example.flashcardapp.data.dao.FlashcardDao;
 import com.example.flashcardapp.data.dao.FlashcardDao_Impl;
 import com.example.flashcardapp.data.dao.FolderDao;
 import com.example.flashcardapp.data.dao.FolderDao_Impl;
+import com.example.flashcardapp.data.dao.SavedWordDao;
+import com.example.flashcardapp.data.dao.SavedWordDao_Impl;
 import com.example.flashcardapp.data.dao.SetProgressDao;
 import com.example.flashcardapp.data.dao.SetProgressDao_Impl;
 import com.example.flashcardapp.data.dao.StudySessionDao;
@@ -54,10 +56,12 @@ public final class AppDatabase_Impl extends AppDatabase {
 
   private volatile StudySessionDao _studySessionDao;
 
+  private volatile SavedWordDao _savedWordDao;
+
   @Override
   @NonNull
   protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(1) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(2) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`id` TEXT NOT NULL, `name` TEXT, `email` TEXT, `password` TEXT, `createdAt` TEXT, PRIMARY KEY(`id`))");
@@ -67,8 +71,9 @@ public final class AppDatabase_Impl extends AppDatabase {
         db.execSQL("CREATE TABLE IF NOT EXISTS `card_progress` (`cardId` TEXT NOT NULL, `setId` TEXT, `known` INTEGER NOT NULL, `repetitions` INTEGER NOT NULL, `easeFactor` REAL NOT NULL, `interval` INTEGER NOT NULL, `nextReviewDate` INTEGER NOT NULL, PRIMARY KEY(`cardId`))");
         db.execSQL("CREATE TABLE IF NOT EXISTS `set_progress` (`setId` TEXT NOT NULL, `knownCards` INTEGER NOT NULL, `totalCards` INTEGER NOT NULL, `lastStudied` INTEGER NOT NULL, PRIMARY KEY(`setId`))");
         db.execSQL("CREATE TABLE IF NOT EXISTS `study_sessions` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `setId` TEXT, `date` INTEGER NOT NULL, `cardsStudied` INTEGER NOT NULL, `knownCount` INTEGER NOT NULL)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `saved_words` (`id` TEXT NOT NULL, `word` TEXT, `phonetic` TEXT, `partOfSpeech` TEXT, `definition` TEXT, `example` TEXT, `savedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e9f807d254bf34e498af9510bf8c0afb')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '998b308bf9c49c7431da44bffaf1112a')");
       }
 
       @Override
@@ -80,6 +85,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         db.execSQL("DROP TABLE IF EXISTS `card_progress`");
         db.execSQL("DROP TABLE IF EXISTS `set_progress`");
         db.execSQL("DROP TABLE IF EXISTS `study_sessions`");
+        db.execSQL("DROP TABLE IF EXISTS `saved_words`");
         final List<? extends RoomDatabase.Callback> _callbacks = mCallbacks;
         if (_callbacks != null) {
           for (RoomDatabase.Callback _callback : _callbacks) {
@@ -233,9 +239,26 @@ public final class AppDatabase_Impl extends AppDatabase {
                   + " Expected:\n" + _infoStudySessions + "\n"
                   + " Found:\n" + _existingStudySessions);
         }
+        final HashMap<String, TableInfo.Column> _columnsSavedWords = new HashMap<String, TableInfo.Column>(7);
+        _columnsSavedWords.put("id", new TableInfo.Column("id", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsSavedWords.put("word", new TableInfo.Column("word", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsSavedWords.put("phonetic", new TableInfo.Column("phonetic", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsSavedWords.put("partOfSpeech", new TableInfo.Column("partOfSpeech", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsSavedWords.put("definition", new TableInfo.Column("definition", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsSavedWords.put("example", new TableInfo.Column("example", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsSavedWords.put("savedAt", new TableInfo.Column("savedAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysSavedWords = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesSavedWords = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoSavedWords = new TableInfo("saved_words", _columnsSavedWords, _foreignKeysSavedWords, _indicesSavedWords);
+        final TableInfo _existingSavedWords = TableInfo.read(db, "saved_words");
+        if (!_infoSavedWords.equals(_existingSavedWords)) {
+          return new RoomOpenHelper.ValidationResult(false, "saved_words(com.example.flashcardapp.data.entity.SavedWord).\n"
+                  + " Expected:\n" + _infoSavedWords + "\n"
+                  + " Found:\n" + _existingSavedWords);
+        }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "e9f807d254bf34e498af9510bf8c0afb", "6579b677a2b8cc5489062847d40e4474");
+    }, "998b308bf9c49c7431da44bffaf1112a", "a045f56d5cf997fb3919d21cb0c2a4f1");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;
@@ -246,7 +269,7 @@ public final class AppDatabase_Impl extends AppDatabase {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     final HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "users","card_sets","flashcards","folders","card_progress","set_progress","study_sessions");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "users","card_sets","flashcards","folders","card_progress","set_progress","study_sessions","saved_words");
   }
 
   @Override
@@ -262,6 +285,7 @@ public final class AppDatabase_Impl extends AppDatabase {
       _db.execSQL("DELETE FROM `card_progress`");
       _db.execSQL("DELETE FROM `set_progress`");
       _db.execSQL("DELETE FROM `study_sessions`");
+      _db.execSQL("DELETE FROM `saved_words`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -283,6 +307,7 @@ public final class AppDatabase_Impl extends AppDatabase {
     _typeConvertersMap.put(CardProgressDao.class, CardProgressDao_Impl.getRequiredConverters());
     _typeConvertersMap.put(SetProgressDao.class, SetProgressDao_Impl.getRequiredConverters());
     _typeConvertersMap.put(StudySessionDao.class, StudySessionDao_Impl.getRequiredConverters());
+    _typeConvertersMap.put(SavedWordDao.class, SavedWordDao_Impl.getRequiredConverters());
     return _typeConvertersMap;
   }
 
@@ -395,6 +420,20 @@ public final class AppDatabase_Impl extends AppDatabase {
           _studySessionDao = new StudySessionDao_Impl(this);
         }
         return _studySessionDao;
+      }
+    }
+  }
+
+  @Override
+  public SavedWordDao savedWordDao() {
+    if (_savedWordDao != null) {
+      return _savedWordDao;
+    } else {
+      synchronized(this) {
+        if(_savedWordDao == null) {
+          _savedWordDao = new SavedWordDao_Impl(this);
+        }
+        return _savedWordDao;
       }
     }
   }

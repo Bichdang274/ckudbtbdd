@@ -1,4 +1,4 @@
-#Sat May 23 23:47:30 ICT 2026
+#Sun May 24 15:56:53 ICT 2026
 base.0=C\:\\Users\\dangb\\Downloads\\FlashcardApp_Android_v14\\FlashcardApp\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\dangb\\Downloads\\FlashcardApp_Android_v14\\FlashcardApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.10=C\:\\Users\\dangb\\Downloads\\FlashcardApp_Android_v14\\FlashcardApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex

@@ -58,6 +58,19 @@ public class AuthViewModel extends AndroidViewModel {
         });
     }
 
+    public void deleteAccount() {
+        _authState.setValue(new AuthState.Loading());
+        executor.execute(() -> {
+            try {
+                repo.deleteAccount();
+                _authState.postValue(new AuthState.LoggedOut());
+            } catch (Exception e) {
+                String msg = e.getMessage();
+                _authState.postValue(new AuthState.Error(msg != null ? msg : "Không thể xóa tài khoản"));
+            }
+        });
+    }
+
     @Override
     protected void onCleared() {
         super.onCleared();

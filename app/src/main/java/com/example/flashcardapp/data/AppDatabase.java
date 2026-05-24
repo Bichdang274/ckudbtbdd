@@ -13,8 +13,9 @@ import java.util.concurrent.Executors;
 
 @Database(
     entities = {User.class, CardSet.class, Flashcard.class, Folder.class,
-                CardProgress.class, SetProgress.class, StudySession.class},
-    version = 1,
+                CardProgress.class, SetProgress.class, StudySession.class,
+                com.example.flashcardapp.data.entity.SavedWord.class},
+    version = 2,
     exportSchema = false
 )
 public abstract class AppDatabase extends RoomDatabase {
@@ -25,6 +26,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract CardProgressDao cardProgressDao();
     public abstract SetProgressDao setProgressDao();
     public abstract StudySessionDao studySessionDao();
+    public abstract com.example.flashcardapp.data.dao.SavedWordDao savedWordDao();
 
     private static volatile AppDatabase INSTANCE;
 
@@ -36,7 +38,7 @@ public abstract class AppDatabase extends RoomDatabase {
                             context.getApplicationContext(),
                             AppDatabase.class,
                             "flashcard_db"
-                    ).addCallback(new Callback() {
+                    ).fallbackToDestructiveMigration().addCallback(new Callback() {
                         @Override
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             super.onCreate(db);
