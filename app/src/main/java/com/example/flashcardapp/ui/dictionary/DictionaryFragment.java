@@ -204,7 +204,7 @@ public class DictionaryFragment extends Fragment {
     }
 
     @Override
-    public void onResume() { super.onResume(); vm.refreshFolders(); }
+    public void onResume() { super.onResume(); vm.loadAll(); }
 
     @Override
     public void onDestroyView() {

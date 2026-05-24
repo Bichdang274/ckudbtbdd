@@ -12,8 +12,8 @@ public interface SavedWordDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(SavedWord word);
 
-    @Query("SELECT * FROM saved_words ORDER BY savedAt DESC")
-    List<SavedWord> getAll();
+    @Query("SELECT * FROM saved_words WHERE userId = :userId ORDER BY savedAt DESC")
+    List<SavedWord> getAllForUser(String userId);
 
     @Query("SELECT * FROM saved_words WHERE id IN (:ids)")
     List<SavedWord> getByIds(List<String> ids);
@@ -21,8 +21,8 @@ public interface SavedWordDao {
     @Query("SELECT * FROM saved_words WHERE id = :id LIMIT 1")
     SavedWord getById(String id);
 
-    @Query("SELECT * FROM saved_words WHERE word = :word LIMIT 1")
-    SavedWord getByWord(String word);
+    @Query("SELECT * FROM saved_words WHERE word = :word AND userId = :userId LIMIT 1")
+    SavedWord getByWordForUser(String word, String userId);
 
     @Query("DELETE FROM saved_words WHERE id = :id")
     void deleteById(String id);

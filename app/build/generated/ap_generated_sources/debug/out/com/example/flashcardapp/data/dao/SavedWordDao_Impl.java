@@ -36,7 +36,7 @@ public final class SavedWordDao_Impl implements SavedWordDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR REPLACE INTO `saved_words` (`id`,`word`,`phonetic`,`partOfSpeech`,`definition`,`example`,`savedAt`) VALUES (?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `saved_words` (`id`,`userId`,`word`,`phonetic`,`partOfSpeech`,`definition`,`example`,`savedAt`) VALUES (?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -46,32 +46,37 @@ public final class SavedWordDao_Impl implements SavedWordDao {
         } else {
           statement.bindString(1, entity.id);
         }
-        if (entity.word == null) {
+        if (entity.userId == null) {
           statement.bindNull(2);
         } else {
-          statement.bindString(2, entity.word);
+          statement.bindString(2, entity.userId);
         }
-        if (entity.phonetic == null) {
+        if (entity.word == null) {
           statement.bindNull(3);
         } else {
-          statement.bindString(3, entity.phonetic);
+          statement.bindString(3, entity.word);
         }
-        if (entity.partOfSpeech == null) {
+        if (entity.phonetic == null) {
           statement.bindNull(4);
         } else {
-          statement.bindString(4, entity.partOfSpeech);
+          statement.bindString(4, entity.phonetic);
         }
-        if (entity.definition == null) {
+        if (entity.partOfSpeech == null) {
           statement.bindNull(5);
         } else {
-          statement.bindString(5, entity.definition);
+          statement.bindString(5, entity.partOfSpeech);
         }
-        if (entity.example == null) {
+        if (entity.definition == null) {
           statement.bindNull(6);
         } else {
-          statement.bindString(6, entity.example);
+          statement.bindString(6, entity.definition);
         }
-        statement.bindLong(7, entity.savedAt);
+        if (entity.example == null) {
+          statement.bindNull(7);
+        } else {
+          statement.bindString(7, entity.example);
+        }
+        statement.bindLong(8, entity.savedAt);
       }
     };
     this.__preparedStmtOfDeleteById = new SharedSQLiteStatement(__db) {
@@ -120,13 +125,20 @@ public final class SavedWordDao_Impl implements SavedWordDao {
   }
 
   @Override
-  public List<SavedWord> getAll() {
-    final String _sql = "SELECT * FROM saved_words ORDER BY savedAt DESC";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+  public List<SavedWord> getAllForUser(final String userId) {
+    final String _sql = "SELECT * FROM saved_words WHERE userId = ? ORDER BY savedAt DESC";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    if (userId == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, userId);
+    }
     __db.assertNotSuspendingTransaction();
     final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
     try {
       final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+      final int _cursorIndexOfUserId = CursorUtil.getColumnIndexOrThrow(_cursor, "userId");
       final int _cursorIndexOfWord = CursorUtil.getColumnIndexOrThrow(_cursor, "word");
       final int _cursorIndexOfPhonetic = CursorUtil.getColumnIndexOrThrow(_cursor, "phonetic");
       final int _cursorIndexOfPartOfSpeech = CursorUtil.getColumnIndexOrThrow(_cursor, "partOfSpeech");
@@ -141,6 +153,12 @@ public final class SavedWordDao_Impl implements SavedWordDao {
           _tmpId = null;
         } else {
           _tmpId = _cursor.getString(_cursorIndexOfId);
+        }
+        final String _tmpUserId;
+        if (_cursor.isNull(_cursorIndexOfUserId)) {
+          _tmpUserId = null;
+        } else {
+          _tmpUserId = _cursor.getString(_cursorIndexOfUserId);
         }
         final String _tmpWord;
         if (_cursor.isNull(_cursorIndexOfWord)) {
@@ -174,7 +192,7 @@ public final class SavedWordDao_Impl implements SavedWordDao {
         }
         final long _tmpSavedAt;
         _tmpSavedAt = _cursor.getLong(_cursorIndexOfSavedAt);
-        _item = new SavedWord(_tmpId,_tmpWord,_tmpPhonetic,_tmpPartOfSpeech,_tmpDefinition,_tmpExample,_tmpSavedAt);
+        _item = new SavedWord(_tmpId,_tmpUserId,_tmpWord,_tmpPhonetic,_tmpPartOfSpeech,_tmpDefinition,_tmpExample,_tmpSavedAt);
         _result.add(_item);
       }
       return _result;
@@ -211,6 +229,7 @@ public final class SavedWordDao_Impl implements SavedWordDao {
     final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
     try {
       final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+      final int _cursorIndexOfUserId = CursorUtil.getColumnIndexOrThrow(_cursor, "userId");
       final int _cursorIndexOfWord = CursorUtil.getColumnIndexOrThrow(_cursor, "word");
       final int _cursorIndexOfPhonetic = CursorUtil.getColumnIndexOrThrow(_cursor, "phonetic");
       final int _cursorIndexOfPartOfSpeech = CursorUtil.getColumnIndexOrThrow(_cursor, "partOfSpeech");
@@ -225,6 +244,12 @@ public final class SavedWordDao_Impl implements SavedWordDao {
           _tmpId = null;
         } else {
           _tmpId = _cursor.getString(_cursorIndexOfId);
+        }
+        final String _tmpUserId;
+        if (_cursor.isNull(_cursorIndexOfUserId)) {
+          _tmpUserId = null;
+        } else {
+          _tmpUserId = _cursor.getString(_cursorIndexOfUserId);
         }
         final String _tmpWord;
         if (_cursor.isNull(_cursorIndexOfWord)) {
@@ -258,7 +283,7 @@ public final class SavedWordDao_Impl implements SavedWordDao {
         }
         final long _tmpSavedAt;
         _tmpSavedAt = _cursor.getLong(_cursorIndexOfSavedAt);
-        _item_1 = new SavedWord(_tmpId,_tmpWord,_tmpPhonetic,_tmpPartOfSpeech,_tmpDefinition,_tmpExample,_tmpSavedAt);
+        _item_1 = new SavedWord(_tmpId,_tmpUserId,_tmpWord,_tmpPhonetic,_tmpPartOfSpeech,_tmpDefinition,_tmpExample,_tmpSavedAt);
         _result.add(_item_1);
       }
       return _result;
@@ -282,6 +307,7 @@ public final class SavedWordDao_Impl implements SavedWordDao {
     final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
     try {
       final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+      final int _cursorIndexOfUserId = CursorUtil.getColumnIndexOrThrow(_cursor, "userId");
       final int _cursorIndexOfWord = CursorUtil.getColumnIndexOrThrow(_cursor, "word");
       final int _cursorIndexOfPhonetic = CursorUtil.getColumnIndexOrThrow(_cursor, "phonetic");
       final int _cursorIndexOfPartOfSpeech = CursorUtil.getColumnIndexOrThrow(_cursor, "partOfSpeech");
@@ -295,6 +321,12 @@ public final class SavedWordDao_Impl implements SavedWordDao {
           _tmpId = null;
         } else {
           _tmpId = _cursor.getString(_cursorIndexOfId);
+        }
+        final String _tmpUserId;
+        if (_cursor.isNull(_cursorIndexOfUserId)) {
+          _tmpUserId = null;
+        } else {
+          _tmpUserId = _cursor.getString(_cursorIndexOfUserId);
         }
         final String _tmpWord;
         if (_cursor.isNull(_cursorIndexOfWord)) {
@@ -328,7 +360,7 @@ public final class SavedWordDao_Impl implements SavedWordDao {
         }
         final long _tmpSavedAt;
         _tmpSavedAt = _cursor.getLong(_cursorIndexOfSavedAt);
-        _result = new SavedWord(_tmpId,_tmpWord,_tmpPhonetic,_tmpPartOfSpeech,_tmpDefinition,_tmpExample,_tmpSavedAt);
+        _result = new SavedWord(_tmpId,_tmpUserId,_tmpWord,_tmpPhonetic,_tmpPartOfSpeech,_tmpDefinition,_tmpExample,_tmpSavedAt);
       } else {
         _result = null;
       }
@@ -340,19 +372,26 @@ public final class SavedWordDao_Impl implements SavedWordDao {
   }
 
   @Override
-  public SavedWord getByWord(final String word) {
-    final String _sql = "SELECT * FROM saved_words WHERE word = ? LIMIT 1";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+  public SavedWord getByWordForUser(final String word, final String userId) {
+    final String _sql = "SELECT * FROM saved_words WHERE word = ? AND userId = ? LIMIT 1";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 2);
     int _argIndex = 1;
     if (word == null) {
       _statement.bindNull(_argIndex);
     } else {
       _statement.bindString(_argIndex, word);
     }
+    _argIndex = 2;
+    if (userId == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, userId);
+    }
     __db.assertNotSuspendingTransaction();
     final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
     try {
       final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+      final int _cursorIndexOfUserId = CursorUtil.getColumnIndexOrThrow(_cursor, "userId");
       final int _cursorIndexOfWord = CursorUtil.getColumnIndexOrThrow(_cursor, "word");
       final int _cursorIndexOfPhonetic = CursorUtil.getColumnIndexOrThrow(_cursor, "phonetic");
       final int _cursorIndexOfPartOfSpeech = CursorUtil.getColumnIndexOrThrow(_cursor, "partOfSpeech");
@@ -366,6 +405,12 @@ public final class SavedWordDao_Impl implements SavedWordDao {
           _tmpId = null;
         } else {
           _tmpId = _cursor.getString(_cursorIndexOfId);
+        }
+        final String _tmpUserId;
+        if (_cursor.isNull(_cursorIndexOfUserId)) {
+          _tmpUserId = null;
+        } else {
+          _tmpUserId = _cursor.getString(_cursorIndexOfUserId);
         }
         final String _tmpWord;
         if (_cursor.isNull(_cursorIndexOfWord)) {
@@ -399,7 +444,7 @@ public final class SavedWordDao_Impl implements SavedWordDao {
         }
         final long _tmpSavedAt;
         _tmpSavedAt = _cursor.getLong(_cursorIndexOfSavedAt);
-        _result = new SavedWord(_tmpId,_tmpWord,_tmpPhonetic,_tmpPartOfSpeech,_tmpDefinition,_tmpExample,_tmpSavedAt);
+        _result = new SavedWord(_tmpId,_tmpUserId,_tmpWord,_tmpPhonetic,_tmpPartOfSpeech,_tmpDefinition,_tmpExample,_tmpSavedAt);
       } else {
         _result = null;
       }

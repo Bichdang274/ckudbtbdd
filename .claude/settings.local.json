@@ -18,7 +18,15 @@
       "Bash(dir C:\\\\Users\\\\dangb\\\\OneDrive\\\\Máy tính\\\\ảnh *)",
       "PowerShell(Get-ChildItem \"C:\\\\Users\\\\dangb\\\\OneDrive\\\\Máy tính\\\\ảnh\" | ForEach-Object { $_.FullName })",
       "PowerShell(New-Item *)",
-      "Bash(./gradlew assembleDebug)"
+      "Bash(./gradlew assembleDebug)",
+      "PowerShell(adb devices *)",
+      "PowerShell(& \"C:\\\\Users\\\\dangb\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\platform-tools\\\\adb.exe\" devices)",
+      "PowerShell(& \"C:\\\\Users\\\\dangb\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\platform-tools\\\\adb.exe\" install -r \"C:\\\\Users\\\\dangb\\\\Downloads\\\\FlashcardApp_Android_v14\\\\FlashcardApp\\\\app\\\\build\\\\intermediates\\\\apk\\\\debug\\\\app-debug.apk\")",
+      "PowerShell(& \"C:\\\\Users\\\\dangb\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\platform-tools\\\\adb.exe\" shell getprop sys.boot_completed)",
+      "PowerShell(& \"C:\\\\Users\\\\dangb\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\platform-tools\\\\adb.exe\" shell pm list packages 2>&1 | Select-Object -First 5)",
+      "PowerShell(& \"C:\\\\Users\\\\dangb\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\platform-tools\\\\adb.exe\" kill-server; Start-Sleep -Seconds 3; & \"C:\\\\Users\\\\dangb\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\platform-tools\\\\adb.exe\" start-server; Start-Sleep -Seconds 3; & \"C:\\\\Users\\\\dangb\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\platform-tools\\\\adb.exe\" devices)",
+      "PowerShell(& \"C:\\\\Users\\\\dangb\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\platform-tools\\\\adb.exe\" shell pm list packages 2>&1 | Select-Object -First 3)",
+      "PowerShell(& \"C:\\\\Users\\\\dangb\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\platform-tools\\\\adb.exe\" reboot)"
     ]
   }
 }

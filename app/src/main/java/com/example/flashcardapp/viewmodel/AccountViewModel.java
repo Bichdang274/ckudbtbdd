@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.flashcardapp.data.model.*;
 import com.example.flashcardapp.data.repository.SupabaseRepository;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -38,9 +39,10 @@ public class AccountViewModel extends AndroidViewModel {
             _user.postValue(repo.getCurrentProfile());
             _folders.postValue(repo.getFolders());
             List<CardProgressDto> all = repo.getAllProgress();
+            int totalCards = repo.getAllFlashcards().size();
             int wordsLearned = 0;
             for (CardProgressDto p : all) if (p.known) wordsLearned++;
-            _stats.postValue(new AccountStats(wordsLearned, repo.getTotalSessions(), repo.getCurrentStreak()));
+            _stats.postValue(new AccountStats(wordsLearned, repo.getTotalSessions(), repo.getCurrentStreak(), totalCards));
         });
     }
 
@@ -58,11 +60,11 @@ public class AccountViewModel extends AndroidViewModel {
         });
     }
 
-    public void updateProfile(String name) {
+    public void updateProfile(String name, String dob, String gender) {
         _updateState.postValue(UpdateState.LOADING);
         executor.execute(() -> {
             try {
-                repo.updateProfile(name);
+                repo.updateProfile(name, dob, gender);
                 _updateState.postValue(UpdateState.SUCCESS);
                 loadData();
             } catch (Exception e) {
@@ -72,6 +74,8 @@ public class AccountViewModel extends AndroidViewModel {
         });
     }
 
+    public Set<Long> getStudyDaySet() { return repo.getStudyDaySet(); }
+
     public void resetUpdateState() { _updateState.setValue(UpdateState.IDLE); }
 
     public void logout() { executor.execute(repo::signOut); }
@@ -80,9 +84,10 @@ public class AccountViewModel extends AndroidViewModel {
     protected void onCleared() { super.onCleared(); executor.shutdown(); }
 
     public static class AccountStats {
-        public final int wordsLearned, sessions, streak;
-        public AccountStats(int wordsLearned, int sessions, int streak) {
-            this.wordsLearned = wordsLearned; this.sessions = sessions; this.streak = streak;
+        public final int wordsLearned, sessions, streak, totalCards;
+        public AccountStats(int wordsLearned, int sessions, int streak, int totalCards) {
+            this.wordsLearned = wordsLearned; this.sessions = sessions;
+            this.streak = streak; this.totalCards = totalCards;
         }
     }
 }

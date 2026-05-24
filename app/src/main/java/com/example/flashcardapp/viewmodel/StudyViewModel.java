@@ -125,12 +125,12 @@ public class StudyViewModel extends AndroidViewModel {
     }
 
     private void finishSession() {
-        if (setId.isEmpty()) return;
         List<FlashcardDto> c = _cards.getValue();
         Pair<Integer, Integer> stats = _sessionStats.getValue();
         int total = c != null ? c.size() : 0;
         int known = stats != null ? stats.first : 0;
-        executor.execute(() -> repo.saveSession(setId, total, known));
+        String sid = setId.isEmpty() ? "folder_study" : setId;
+        executor.execute(() -> repo.saveSession(sid, total, known));
     }
 
     private CardProgressDto updateSM2(CardProgressDto p, int quality) {

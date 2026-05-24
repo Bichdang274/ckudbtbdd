@@ -24,10 +24,25 @@ public final class FragmentAccountBinding implements ViewBinding {
   private final NestedScrollView rootView;
 
   @NonNull
+  public final LinearLayout badgeActive;
+
+  @NonNull
+  public final LinearLayout btnAbout;
+
+  @NonNull
   public final Button btnLogout;
 
   @NonNull
   public final LinearLayout btnProfile;
+
+  @NonNull
+  public final LinearLayout cardFolders;
+
+  @NonNull
+  public final LinearLayout cardStreak;
+
+  @NonNull
+  public final LinearLayout cardWordsLearned;
 
   @NonNull
   public final ProgressBar progressTotal;
@@ -71,17 +86,28 @@ public final class FragmentAccountBinding implements ViewBinding {
   @NonNull
   public final TextView tvWordsLearned;
 
-  private FragmentAccountBinding(@NonNull NestedScrollView rootView, @NonNull Button btnLogout,
-      @NonNull LinearLayout btnProfile, @NonNull ProgressBar progressTotal,
-      @NonNull SwitchMaterial toggleDark, @NonNull SwitchMaterial toggleNotification,
-      @NonNull SwitchMaterial toggleSound, @NonNull TextView tvAvatar,
-      @NonNull TextView tvDarkModeSubtitle, @NonNull TextView tvDeleteAccount,
-      @NonNull TextView tvEmail, @NonNull TextView tvName, @NonNull TextView tvProgressPercent,
-      @NonNull TextView tvSessions, @NonNull TextView tvSetsCount, @NonNull TextView tvStreak,
-      @NonNull TextView tvWordsLearned) {
+  @NonNull
+  public final TextView tvWordsTotal;
+
+  private FragmentAccountBinding(@NonNull NestedScrollView rootView,
+      @NonNull LinearLayout badgeActive, @NonNull LinearLayout btnAbout, @NonNull Button btnLogout,
+      @NonNull LinearLayout btnProfile, @NonNull LinearLayout cardFolders,
+      @NonNull LinearLayout cardStreak, @NonNull LinearLayout cardWordsLearned,
+      @NonNull ProgressBar progressTotal, @NonNull SwitchMaterial toggleDark,
+      @NonNull SwitchMaterial toggleNotification, @NonNull SwitchMaterial toggleSound,
+      @NonNull TextView tvAvatar, @NonNull TextView tvDarkModeSubtitle,
+      @NonNull TextView tvDeleteAccount, @NonNull TextView tvEmail, @NonNull TextView tvName,
+      @NonNull TextView tvProgressPercent, @NonNull TextView tvSessions,
+      @NonNull TextView tvSetsCount, @NonNull TextView tvStreak, @NonNull TextView tvWordsLearned,
+      @NonNull TextView tvWordsTotal) {
     this.rootView = rootView;
+    this.badgeActive = badgeActive;
+    this.btnAbout = btnAbout;
     this.btnLogout = btnLogout;
     this.btnProfile = btnProfile;
+    this.cardFolders = cardFolders;
+    this.cardStreak = cardStreak;
+    this.cardWordsLearned = cardWordsLearned;
     this.progressTotal = progressTotal;
     this.toggleDark = toggleDark;
     this.toggleNotification = toggleNotification;
@@ -96,6 +122,7 @@ public final class FragmentAccountBinding implements ViewBinding {
     this.tvSetsCount = tvSetsCount;
     this.tvStreak = tvStreak;
     this.tvWordsLearned = tvWordsLearned;
+    this.tvWordsTotal = tvWordsTotal;
   }
 
   @Override
@@ -125,6 +152,18 @@ public final class FragmentAccountBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.badgeActive;
+      LinearLayout badgeActive = ViewBindings.findChildViewById(rootView, id);
+      if (badgeActive == null) {
+        break missingId;
+      }
+
+      id = R.id.btnAbout;
+      LinearLayout btnAbout = ViewBindings.findChildViewById(rootView, id);
+      if (btnAbout == null) {
+        break missingId;
+      }
+
       id = R.id.btnLogout;
       Button btnLogout = ViewBindings.findChildViewById(rootView, id);
       if (btnLogout == null) {
@@ -134,6 +173,24 @@ public final class FragmentAccountBinding implements ViewBinding {
       id = R.id.btnProfile;
       LinearLayout btnProfile = ViewBindings.findChildViewById(rootView, id);
       if (btnProfile == null) {
+        break missingId;
+      }
+
+      id = R.id.cardFolders;
+      LinearLayout cardFolders = ViewBindings.findChildViewById(rootView, id);
+      if (cardFolders == null) {
+        break missingId;
+      }
+
+      id = R.id.cardStreak;
+      LinearLayout cardStreak = ViewBindings.findChildViewById(rootView, id);
+      if (cardStreak == null) {
+        break missingId;
+      }
+
+      id = R.id.cardWordsLearned;
+      LinearLayout cardWordsLearned = ViewBindings.findChildViewById(rootView, id);
+      if (cardWordsLearned == null) {
         break missingId;
       }
 
@@ -221,10 +278,17 @@ public final class FragmentAccountBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentAccountBinding((NestedScrollView) rootView, btnLogout, btnProfile,
-          progressTotal, toggleDark, toggleNotification, toggleSound, tvAvatar, tvDarkModeSubtitle,
+      id = R.id.tvWordsTotal;
+      TextView tvWordsTotal = ViewBindings.findChildViewById(rootView, id);
+      if (tvWordsTotal == null) {
+        break missingId;
+      }
+
+      return new FragmentAccountBinding((NestedScrollView) rootView, badgeActive, btnAbout,
+          btnLogout, btnProfile, cardFolders, cardStreak, cardWordsLearned, progressTotal,
+          toggleDark, toggleNotification, toggleSound, tvAvatar, tvDarkModeSubtitle,
           tvDeleteAccount, tvEmail, tvName, tvProgressPercent, tvSessions, tvSetsCount, tvStreak,
-          tvWordsLearned);
+          tvWordsLearned, tvWordsTotal);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

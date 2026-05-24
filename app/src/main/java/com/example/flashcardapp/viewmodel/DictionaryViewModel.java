@@ -46,7 +46,8 @@ public class DictionaryViewModel extends AndroidViewModel {
 
     public void loadAll() {
         executor.execute(() -> {
-            _savedWords.postValue(db.savedWordDao().getAll());
+            String uid = repo.getCurrentUserId();
+            _savedWords.postValue(uid != null ? db.savedWordDao().getAllForUser(uid) : Collections.emptyList());
             _folders.postValue(repo.getFolders());
         });
     }
@@ -88,9 +89,9 @@ public class DictionaryViewModel extends AndroidViewModel {
         DictionaryApiManager.DictEntry entry = _lookupResult.getValue();
         if (entry == null) return;
         executor.execute(() -> {
-            // Không lưu trùng
-            SavedWord existing = db.savedWordDao().getByWord(entry.word);
-            if (existing != null) return;
+            String uid = repo.getCurrentUserId();
+            if (uid == null) return;
+            if (db.savedWordDao().getByWordForUser(entry.word, uid) != null) return;
             String pos = "", def = "", example = "";
             if (entry.meanings != null && !entry.meanings.isEmpty()) {
                 DictionaryApiManager.DictEntry.Meaning m = entry.meanings.get(0);
@@ -103,18 +104,19 @@ public class DictionaryViewModel extends AndroidViewModel {
             }
             SavedWord sw = new SavedWord(
                 "dict_" + UUID.randomUUID().toString(),
-                entry.word, entry.getPhonetic(), pos, def, example,
+                uid, entry.word, entry.getPhonetic(), pos, def, example,
                 System.currentTimeMillis()
             );
             db.savedWordDao().insert(sw);
-            _savedWords.postValue(db.savedWordDao().getAll());
+            _savedWords.postValue(db.savedWordDao().getAllForUser(uid));
         });
     }
 
     public void deleteSavedWord(String id) {
         executor.execute(() -> {
+            String uid = repo.getCurrentUserId();
             db.savedWordDao().deleteById(id);
-            _savedWords.postValue(db.savedWordDao().getAll());
+            _savedWords.postValue(uid != null ? db.savedWordDao().getAllForUser(uid) : Collections.emptyList());
         });
     }
 

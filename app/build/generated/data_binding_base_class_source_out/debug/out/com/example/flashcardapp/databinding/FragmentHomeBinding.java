@@ -4,6 +4,7 @@ package com.example.flashcardapp.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -23,7 +24,16 @@ public final class FragmentHomeBinding implements ViewBinding {
   private final NestedScrollView rootView;
 
   @NonNull
+  public final LinearLayout bannerReminder;
+
+  @NonNull
   public final TextView btnAddFolder;
+
+  @NonNull
+  public final ImageButton btnDismissReminder;
+
+  @NonNull
+  public final TextView btnEnableReminder;
 
   @NonNull
   public final ProgressBar progressBarOverall;
@@ -55,14 +65,19 @@ public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
   public final TextView tvWordsLearned;
 
-  private FragmentHomeBinding(@NonNull NestedScrollView rootView, @NonNull TextView btnAddFolder,
+  private FragmentHomeBinding(@NonNull NestedScrollView rootView,
+      @NonNull LinearLayout bannerReminder, @NonNull TextView btnAddFolder,
+      @NonNull ImageButton btnDismissReminder, @NonNull TextView btnEnableReminder,
       @NonNull ProgressBar progressBarOverall, @NonNull RecyclerView rvFolders,
       @NonNull RecyclerView rvSets, @NonNull LinearLayout sectionFolders,
       @NonNull TextView tvEmptyFolders, @NonNull TextView tvGreeting,
       @NonNull TextView tvProgressLabel, @NonNull TextView tvSessions, @NonNull TextView tvStreak,
       @NonNull TextView tvWordsLearned) {
     this.rootView = rootView;
+    this.bannerReminder = bannerReminder;
     this.btnAddFolder = btnAddFolder;
+    this.btnDismissReminder = btnDismissReminder;
+    this.btnEnableReminder = btnEnableReminder;
     this.progressBarOverall = progressBarOverall;
     this.rvFolders = rvFolders;
     this.rvSets = rvSets;
@@ -102,9 +117,27 @@ public final class FragmentHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.bannerReminder;
+      LinearLayout bannerReminder = ViewBindings.findChildViewById(rootView, id);
+      if (bannerReminder == null) {
+        break missingId;
+      }
+
       id = R.id.btnAddFolder;
       TextView btnAddFolder = ViewBindings.findChildViewById(rootView, id);
       if (btnAddFolder == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDismissReminder;
+      ImageButton btnDismissReminder = ViewBindings.findChildViewById(rootView, id);
+      if (btnDismissReminder == null) {
+        break missingId;
+      }
+
+      id = R.id.btnEnableReminder;
+      TextView btnEnableReminder = ViewBindings.findChildViewById(rootView, id);
+      if (btnEnableReminder == null) {
         break missingId;
       }
 
@@ -168,9 +201,10 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHomeBinding((NestedScrollView) rootView, btnAddFolder, progressBarOverall,
-          rvFolders, rvSets, sectionFolders, tvEmptyFolders, tvGreeting, tvProgressLabel,
-          tvSessions, tvStreak, tvWordsLearned);
+      return new FragmentHomeBinding((NestedScrollView) rootView, bannerReminder, btnAddFolder,
+          btnDismissReminder, btnEnableReminder, progressBarOverall, rvFolders, rvSets,
+          sectionFolders, tvEmptyFolders, tvGreeting, tvProgressLabel, tvSessions, tvStreak,
+          tvWordsLearned);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

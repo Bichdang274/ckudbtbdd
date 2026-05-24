@@ -4,12 +4,12 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_account.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\item_flashcard.xml",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_flashcard.xml"
-    },
-    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\fragment_login.xml",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\item_flashcard.xml",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_flashcard.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\fragment_verify_otp.xml",
@@ -20,8 +20,16 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_study.xml"
     },
     {
+        "merged": "com.example.flashcardapp-mergeDebugResources-67:/layout/bottom_sheet_streak.xml",
+        "source": "com.example.flashcardapp-main-70:/layout/bottom_sheet_streak.xml"
+    },
+    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\fragment_matching_game.xml",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_matching_game.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\bottom_sheet_streak.xml",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\bottom_sheet_streak.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\fragment_onboarding.xml",
@@ -40,12 +48,20 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_edit_profile.xml"
     },
     {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\item_vocabulary_word.xml",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_vocabulary_word.xml"
+    },
+    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\fragment_reset_password.xml",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_reset_password.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\fragment_home.xml",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\bottom_sheet_my_folders.xml",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\bottom_sheet_my_folders.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\item_search_result.xml",
@@ -72,6 +88,14 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_folder.xml"
     },
     {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\bottom_sheet_vocabulary.xml",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\bottom_sheet_vocabulary.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\bottom_sheet_about.xml",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\bottom_sheet_about.xml"
+    },
+    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\activity_main.xml",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\activity_main.xml"
     },
@@ -86,10 +110,6 @@
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\fragment_quiz.xml",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_quiz.xml"
-    },
-    {
-        "merged": "com.example.flashcardapp-mergeDebugResources-67:/layout/fragment_account.xml",
-        "source": "com.example.flashcardapp-main-70:/layout/fragment_account.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-mergeDebugResources-67:\\layout\\fragment_main.xml",

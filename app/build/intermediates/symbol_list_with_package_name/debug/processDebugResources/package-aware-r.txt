@@ -24,6 +24,7 @@ anim btn_radio_to_on_mtrl_dot_group_animation
 anim btn_radio_to_on_mtrl_ring_outer_animation
 anim btn_radio_to_on_mtrl_ring_outer_path_animation
 anim card_in
+anim correct_bounce
 anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
@@ -53,6 +54,7 @@ anim nav_default_pop_enter_anim
 anim nav_default_pop_exit_anim
 anim slide_in_right
 anim slide_out_left
+anim wrong_shake
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -3093,6 +3095,7 @@ drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
 drawable bg_avatar
+drawable bg_bottom_sheet
 drawable bg_btn_correct
 drawable bg_btn_gradient
 drawable bg_btn_gradient_circle
@@ -3101,9 +3104,15 @@ drawable bg_btn_wrong
 drawable bg_card_dark
 drawable bg_card_study
 drawable bg_card_study_back
+drawable bg_card_study_correct
+drawable bg_card_study_wrong
 drawable bg_chip_active
 drawable bg_chip_inactive
+drawable bg_feedback_correct
+drawable bg_feedback_wrong
 drawable bg_floating_bar
+drawable bg_gender_default
+drawable bg_gender_selected
 drawable bg_gradient_dark
 drawable bg_icon_btn
 drawable bg_info_card
@@ -3119,6 +3128,11 @@ drawable bg_stat_orange
 drawable bg_stat_purple
 drawable bg_stat_teal
 drawable bg_stat_yellow
+drawable bg_streak_day_active
+drawable bg_streak_day_inactive
+drawable bg_streak_day_today
+drawable bg_tab_selected
+drawable bg_tab_unselected
 drawable bg_tile_default
 drawable bg_tile_matched
 drawable bg_tile_selected
@@ -3359,6 +3373,8 @@ id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
 id automatic
+id badgeActive
+id bannerReminder
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3371,12 +3387,18 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnAbout
 id btnAddFolder
 id btnAddToFolder
 id btnBack
 id btnBackHome
 id btnBackToHome
+id btnCancel
+id btnClose
+id btnCreateFolder
 id btnDelete
+id btnDismissReminder
+id btnEnableReminder
 id btnGame
 id btnHome
 id btnKnow
@@ -3401,18 +3423,24 @@ id btnRestart
 id btnSave
 id btnSend
 id btnShuffle
+id btnSound
 id btnSpeak
 id btnStudy
 id btnVerify
 id buttonPanel
 id cache_measures
+id calendarGrid
 id callMeasure
 id cancel_button
 id cardBack
+id cardFolders
 id cardForm
 id cardFront
+id cardInner
 id cardLookup
 id cardQuestion
+id cardStreak
+id cardWordsLearned
 id carryVelocity
 id center
 id centerCrop
@@ -3535,6 +3563,10 @@ id frost
 id fullscreen_header
 id gameContent
 id gameDest
+id genderKhac
+id genderKhongMuon
+id genderNam
+id genderNu
 id ghost_view
 id ghost_view_holder
 id gone
@@ -3576,6 +3608,8 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id layoutDob
+id layoutEmpty
 id layoutRateButtons
 id left
 id leftToRight
@@ -3741,6 +3775,7 @@ id rvFolders
 id rvSavedWords
 id rvSets
 id rvTiles
+id rvWords
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3812,7 +3847,9 @@ id submenuarrow
 id submit_area
 id successView
 id supportScrollUp
+id tabLearned
 id tabMode
+id tabUnlearned
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -3874,6 +3911,7 @@ id tvCompleteTitle
 id tvDarkModeSubtitle
 id tvDefinition
 id tvDeleteAccount
+id tvDob
 id tvEmail
 id tvEmoji
 id tvEmpty
@@ -3881,6 +3919,8 @@ id tvEmptyFolders
 id tvEnglish
 id tvExample
 id tvExampleVi
+id tvFeedback
+id tvFolderCount
 id tvGreeting
 id tvKnownCount
 id tvLearningCount
@@ -3922,6 +3962,7 @@ id tvSkip
 id tvStatsKnown
 id tvStatsLearning
 id tvStreak
+id tvStreakCount
 id tvStreakOverlay
 id tvSubtitle
 id tvTileEmoji
@@ -3937,6 +3978,7 @@ id tvVietnamese
 id tvWord
 id tvWordCount
 id tvWordsLearned
+id tvWordsTotal
 id unchecked
 id uniform
 id unlabeled
@@ -4080,6 +4122,10 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout bottom_sheet_about
+layout bottom_sheet_my_folders
+layout bottom_sheet_streak
+layout bottom_sheet_vocabulary
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -4122,6 +4168,7 @@ layout item_folder
 layout item_matching_tile
 layout item_saved_word
 layout item_search_result
+layout item_vocabulary_word
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -5707,3 +5754,4 @@ styleable ViewStubCompat android_id android_layout android_inflatedId
 styleable ViewTransition android_id SharedValue SharedValueId clearsTag duration ifTagNotSet ifTagSet motionInterpolator motionTarget onStateTransition pathMotionArc setsTag transitionDisable upDuration viewTransitionMode
 styleable WormDotsIndicator dotsClickable dotsColor dotsCornerRadius dotsSize dotsSpacing dotsStrokeColor dotsStrokeWidth
 styleable include constraintSet
+xml network_security_config

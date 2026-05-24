@@ -45,7 +45,10 @@ public final class FragmentQuizBinding implements ViewBinding {
   public final Button btnRestart;
 
   @NonNull
-  public final LinearLayout cardQuestion;
+  public final LinearLayout cardInner;
+
+  @NonNull
+  public final FrameLayout cardQuestion;
 
   @NonNull
   public final ProgressBar circularProgress;
@@ -67,6 +70,9 @@ public final class FragmentQuizBinding implements ViewBinding {
 
   @NonNull
   public final TextView tvEmoji;
+
+  @NonNull
+  public final TextView tvFeedback;
 
   @NonNull
   public final TextView tvPct;
@@ -104,11 +110,12 @@ public final class FragmentQuizBinding implements ViewBinding {
   private FragmentQuizBinding(@NonNull FrameLayout rootView, @NonNull ImageButton btnBack,
       @NonNull Button btnBackToHome, @NonNull Button btnOption0, @NonNull Button btnOption1,
       @NonNull Button btnOption2, @NonNull Button btnOption3, @NonNull Button btnRestart,
-      @NonNull LinearLayout cardQuestion, @NonNull ProgressBar circularProgress,
-      @NonNull ProgressBar progressBar, @NonNull LinearLayout quizContent,
-      @NonNull LinearLayout resultScreen, @NonNull ProgressBar timerBar,
-      @NonNull TextView tvBestStreak, @NonNull TextView tvEmoji, @NonNull TextView tvPct,
-      @NonNull TextView tvProgress, @NonNull TextView tvQuestion, @NonNull TextView tvQuestionSub,
+      @NonNull LinearLayout cardInner, @NonNull FrameLayout cardQuestion,
+      @NonNull ProgressBar circularProgress, @NonNull ProgressBar progressBar,
+      @NonNull LinearLayout quizContent, @NonNull LinearLayout resultScreen,
+      @NonNull ProgressBar timerBar, @NonNull TextView tvBestStreak, @NonNull TextView tvEmoji,
+      @NonNull TextView tvFeedback, @NonNull TextView tvPct, @NonNull TextView tvProgress,
+      @NonNull TextView tvQuestion, @NonNull TextView tvQuestionSub,
       @NonNull TextView tvResultEmoji, @NonNull TextView tvResultScore,
       @NonNull TextView tvResultSubtitle, @NonNull TextView tvScore,
       @NonNull TextView tvStreakOverlay, @NonNull TextView tvTimeLeft, @NonNull TextView tvTotal) {
@@ -120,6 +127,7 @@ public final class FragmentQuizBinding implements ViewBinding {
     this.btnOption2 = btnOption2;
     this.btnOption3 = btnOption3;
     this.btnRestart = btnRestart;
+    this.cardInner = cardInner;
     this.cardQuestion = cardQuestion;
     this.circularProgress = circularProgress;
     this.progressBar = progressBar;
@@ -128,6 +136,7 @@ public final class FragmentQuizBinding implements ViewBinding {
     this.timerBar = timerBar;
     this.tvBestStreak = tvBestStreak;
     this.tvEmoji = tvEmoji;
+    this.tvFeedback = tvFeedback;
     this.tvPct = tvPct;
     this.tvProgress = tvProgress;
     this.tvQuestion = tvQuestion;
@@ -210,8 +219,14 @@ public final class FragmentQuizBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.cardInner;
+      LinearLayout cardInner = ViewBindings.findChildViewById(rootView, id);
+      if (cardInner == null) {
+        break missingId;
+      }
+
       id = R.id.cardQuestion;
-      LinearLayout cardQuestion = ViewBindings.findChildViewById(rootView, id);
+      FrameLayout cardQuestion = ViewBindings.findChildViewById(rootView, id);
       if (cardQuestion == null) {
         break missingId;
       }
@@ -255,6 +270,12 @@ public final class FragmentQuizBinding implements ViewBinding {
       id = R.id.tvEmoji;
       TextView tvEmoji = ViewBindings.findChildViewById(rootView, id);
       if (tvEmoji == null) {
+        break missingId;
+      }
+
+      id = R.id.tvFeedback;
+      TextView tvFeedback = ViewBindings.findChildViewById(rootView, id);
+      if (tvFeedback == null) {
         break missingId;
       }
 
@@ -325,10 +346,10 @@ public final class FragmentQuizBinding implements ViewBinding {
       }
 
       return new FragmentQuizBinding((FrameLayout) rootView, btnBack, btnBackToHome, btnOption0,
-          btnOption1, btnOption2, btnOption3, btnRestart, cardQuestion, circularProgress,
-          progressBar, quizContent, resultScreen, timerBar, tvBestStreak, tvEmoji, tvPct,
-          tvProgress, tvQuestion, tvQuestionSub, tvResultEmoji, tvResultScore, tvResultSubtitle,
-          tvScore, tvStreakOverlay, tvTimeLeft, tvTotal);
+          btnOption1, btnOption2, btnOption3, btnRestart, cardInner, cardQuestion, circularProgress,
+          progressBar, quizContent, resultScreen, timerBar, tvBestStreak, tvEmoji, tvFeedback,
+          tvPct, tvProgress, tvQuestion, tvQuestionSub, tvResultEmoji, tvResultScore,
+          tvResultSubtitle, tvScore, tvStreakOverlay, tvTimeLeft, tvTotal);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

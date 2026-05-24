@@ -1,59 +1,39 @@
 [
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\anim_card_in.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\anim\\card_in.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_stat_yellow.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_stat_yellow.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_ic_arrow_back.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_arrow_back.xml"
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_bottom_sheet_streak.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\bottom_sheet_streak.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_ic_person.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_person.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_quiz.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_quiz.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable-night_bg_card_study.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable-night\\bg_card_study.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_card_study.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_card_study.xml"
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_bottom_sheet_about.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\bottom_sheet_about.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_option_wrong.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_option_wrong.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\anim_slide_out_left.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\anim\\slide_out_left.xml"
-    },
-    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_nav_btn_small.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_nav_btn_small.xml"
     },
     {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\anim_slide_out_left.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\anim\\slide_out_left.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_feedback_correct.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_feedback_correct.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_bottom_sheet_my_folders.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\bottom_sheet_my_folders.xml"
+    },
+    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable-night_bg_gradient_dark.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable-night\\bg_gradient_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\color_nav_selector.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\color\\nav_selector.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_btn_gradient_small.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_btn_gradient_small.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_ic_close.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_close.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_btn_correct.xml.flat",
@@ -64,20 +44,12 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_card_dark.xml"
     },
     {
-        "merged": "com.example.flashcardapp-debug-68:/layout_fragment_account.xml.flat",
-        "source": "com.example.flashcardapp-main-70:/layout/fragment_account.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_verify_otp.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_verify_otp.xml"
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_reset_password.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_reset_password.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable-night_bg_card_dark.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable-night\\bg_card_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_reset_password.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_reset_password.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_study.xml.flat",
@@ -88,20 +60,8 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_volume.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_register.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_register.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_login.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_login.xml"
-    },
-    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_item_card_set.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_card_set.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_item_saved_word.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_saved_word.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_toggle_on.xml.flat",
@@ -120,6 +80,202 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_splash.xml"
     },
     {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_chip_active.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_chip_active.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_card_study_wrong.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_card_study_wrong.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_bottom_sheet_vocabulary.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\bottom_sheet_vocabulary.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_option_default.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_option_default.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_onboarding.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_onboarding.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_info_card.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_info_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_icon_btn.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_icon_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_item_search_result.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_search_result.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_tile_selected.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_tile_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_logo.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_logo.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_floating_bar.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_floating_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\navigation_nav_inner.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\navigation\\nav_inner.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable-night_bg_card_study_back.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable-night\\bg_card_study_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_gender_default.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_gender_default.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_stat_green.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_stat_green.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\anim_slide_in_right.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\anim\\slide_in_right.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_stat_teal.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_stat_teal.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_otp_box.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_otp_box.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_streak_day_inactive.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_streak_day_inactive.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_chip_inactive.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_chip_inactive.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_ic_game.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_game.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_tile_wrong.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_tile_wrong.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_dictionary.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_dictionary.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\anim_wrong_shake.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\anim\\wrong_shake.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_card_study_back.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_card_study_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\navigation_nav_graph.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\navigation\\nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_onboarding_page.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_onboarding_page.xml"
+    },
+    {
+        "merged": "com.example.flashcardapp-debug-68:/layout_bottom_sheet_streak.xml.flat",
+        "source": "com.example.flashcardapp-main-70:/layout/bottom_sheet_streak.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_ic_book.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_book.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_ic_chevron_right.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_chevron_right.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\anim_flip_out.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\anim\\flip_out.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_gender_selected.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_gender_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\anim_card_in.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\anim\\card_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_ic_arrow_back.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_arrow_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_stat_yellow.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_stat_yellow.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_bottom_sheet.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_bottom_sheet.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_quiz.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_quiz.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable-night_bg_card_study.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable-night\\bg_card_study.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_card_study.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_card_study.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\color_nav_selector.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\color\\nav_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_btn_gradient_small.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_btn_gradient_small.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_ic_close.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_close.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_feedback_wrong.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_feedback_wrong.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_verify_otp.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_verify_otp.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_register.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_login.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_item_saved_word.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_saved_word.xml"
+    },
+    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_item_folder.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_folder.xml"
     },
@@ -132,12 +288,16 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_set_detail.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_chip_active.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_chip_active.xml"
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_tab_selected.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_tab_selected.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable-night_bg_tile_default.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable-night\\bg_tile_default.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_streak_day_active.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_streak_day_active.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_option_correct.xml.flat",
@@ -164,32 +324,8 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_main.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_option_default.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_option_default.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_onboarding.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_onboarding.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_info_card.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_info_card.xml"
-    },
-    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_account.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_account.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_icon_btn.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_icon_btn.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\mipmap-anydpi-v26\\ic_launcher.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_item_search_result.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_search_result.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable-night_bg_icon_btn.xml.flat",
@@ -200,20 +336,16 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_folder_add.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_tile_selected.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_tile_selected.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_matching_game.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_matching_game.xml"
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_tile_matched.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_tile_matched.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_ic_chevron_left.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_chevron_left.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_tile_matched.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_tile_matched.xml"
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_matching_game.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_matching_game.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_tile_default.xml.flat",
@@ -224,68 +356,32 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_logo.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_logo.xml"
-    },
-    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_floating_bar.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_floating_bar.xml"
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_item_vocabulary_word.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_vocabulary_word.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_card_study_correct.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_card_study_correct.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_item_flashcard.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\item_flashcard.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\navigation_nav_inner.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\navigation\\nav_inner.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable-night_bg_card_study_back.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable-night\\bg_card_study_back.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\menu_bottom_nav_menu.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\menu\\bottom_nav_menu.xml"
-    },
-    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_nav_btn.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_nav_btn.xml"
     },
     {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\anim_correct_bounce.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\anim\\correct_bounce.xml"
+    },
+    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_progress_gradient.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\progress_gradient.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_stat_green.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_stat_green.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\anim_slide_in_right.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\anim\\slide_in_right.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_stat_teal.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_stat_teal.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_otp_box.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_otp_box.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_chip_inactive.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_chip_inactive.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_ic_game.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_game.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_tile_wrong.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_tile_wrong.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_ic_shuffle.xml.flat",
@@ -296,28 +392,16 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_btn_wrong.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_dictionary.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_dictionary.xml"
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\xml_network_security_config.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\xml\\network_security_config.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_toggle_off.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_toggle_off.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_card_study_back.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_card_study_back.xml"
-    },
-    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_gradient_dark.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_gradient_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\navigation_nav_graph.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\navigation\\nav_graph.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_onboarding_page.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_onboarding_page.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_stat_orange.xml.flat",
@@ -326,10 +410,6 @@
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\anim_fade_in_up.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\anim\\fade_in_up.xml"
-    },
-    {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_ic_book.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_book.xml"
     },
     {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\layout_fragment_edit_profile.xml.flat",
@@ -344,10 +424,6 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable-night\\bg_option_default.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_ic_chevron_right.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\ic_chevron_right.xml"
-    },
-    {
         "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_btn_gradient_circle.xml.flat",
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_btn_gradient_circle.xml"
     },
@@ -356,11 +432,15 @@
         "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\layout\\fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\color_input_stroke_selector.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\color\\input_stroke_selector.xml"
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_tab_unselected.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_tab_unselected.xml"
     },
     {
-        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\anim_flip_out.xml.flat",
-        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\anim\\flip_out.xml"
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\drawable_bg_streak_day_today.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\drawable\\bg_streak_day_today.xml"
+    },
+    {
+        "merged": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-debug-68:\\color_input_stroke_selector.xml.flat",
+        "source": "C:\\Users\\dangb\\.gradle\\daemon\\8.9\\com.example.flashcardapp-main-70:\\color\\input_stroke_selector.xml"
     }
 ]

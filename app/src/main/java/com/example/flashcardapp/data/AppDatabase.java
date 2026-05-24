@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
     entities = {User.class, CardSet.class, Flashcard.class, Folder.class,
                 CardProgress.class, SetProgress.class, StudySession.class,
                 com.example.flashcardapp.data.entity.SavedWord.class},
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 public abstract class AppDatabase extends RoomDatabase {

@@ -45,7 +45,7 @@ public class SupabaseRepository {
                 .putString("user_email", email)
                 .putString("user_name", name)
                 .apply();
-            return new ProfileDto(uid, name, email);
+            return new ProfileDto(uid, name, email, prefs.getString("user_dob_" + uid, ""), prefs.getString("user_gender_" + uid, ""));
         } else {
             String errBody = res.errorBody() != null ? res.errorBody().string() : null;
             throw new Exception(parseErrorBody(errBody));
@@ -81,16 +81,14 @@ public class SupabaseRepository {
         try { api.deleteFoldersByUser(token, apiKey, "eq." + uid).execute(); } catch (Exception ignored) {}
         try { api.deleteProfileById(token, apiKey, "eq." + uid).execute(); } catch (Exception ignored) {}
 
-        Response<Void> res = api.deleteUser(token, apiKey).execute();
-        if (!res.isSuccessful()) {
-            String errBody = res.errorBody() != null ? res.errorBody().string() : null;
-            throw new Exception(parseErrorBody(errBody));
-        }
+        try { api.deleteUserRpc(token, apiKey, new HashMap<>()).execute(); } catch (Exception ignored) {}
+        try { api.deleteUser(token, apiKey).execute(); } catch (Exception ignored) {}
 
         try {
             com.example.flashcardapp.data.AppDatabase.getInstance(appContext).clearAllTables();
         } catch (Exception ignored) {}
 
+        prefs.edit().clear().apply();
         signOut();
     }
 
@@ -105,10 +103,12 @@ public class SupabaseRepository {
         if (uid == null) return null;
         String email = prefs.getString("user_email", "");
         String name = prefs.getString("user_name", email != null ? email.split("@")[0] : "");
-        return new ProfileDto(uid, name != null ? name : "", email != null ? email : "");
+        String dob = prefs.getString("user_dob_" + uid, "");
+        String gender = prefs.getString("user_gender_" + uid, "");
+        return new ProfileDto(uid, name != null ? name : "", email != null ? email : "", dob, gender);
     }
 
-    public void updateProfile(String name) throws Exception {
+    public void updateProfile(String name, String dob, String gender) throws Exception {
         String uid = getCurrentUserId();
         if (uid == null) throw new Exception("Chưa đăng nhập");
         Response<Void> res = api.updateProfile(getToken(), apiKey, "return=minimal", "eq." + uid,
@@ -117,7 +117,26 @@ public class SupabaseRepository {
             String errBody = res.errorBody() != null ? res.errorBody().string() : null;
             throw new Exception(parseErrorBody(errBody));
         }
-        prefs.edit().putString("user_name", name).apply();
+        prefs.edit()
+            .putString("user_name", name)
+            .putString("user_dob_" + uid, dob != null ? dob : "")
+            .putString("user_gender_" + uid, gender != null ? gender : "")
+            .apply();
+    }
+
+    private String uid() {
+        String uid = getCurrentUserId();
+        return uid != null ? uid : "guest";
+    }
+
+    public Set<Long> getStudyDaySet() {
+        String raw = prefs.getString("study_days_" + uid(), "");
+        Set<Long> days = new HashSet<>();
+        if (raw == null || raw.isEmpty()) return days;
+        for (String part : raw.split(",")) {
+            try { days.add(Long.parseLong(part.trim())); } catch (NumberFormatException ignored) {}
+        }
+        return days;
     }
 
     // ─── Card Sets ───────────────────────────────────────
@@ -230,6 +249,7 @@ public class SupabaseRepository {
         try {
             String uid = getCurrentUserId();
             if (uid == null) return;
+            updateStreak();
             api.upsertProgress(getToken(), apiKey, "resolution=merge-duplicates",
                 new ProgressBody(uid, p.cardId, p.setId, p.known, p.repetitions, p.easeFactor, p.intervalDays)).execute();
         } catch (Exception ignored) {}
@@ -282,11 +302,11 @@ public class SupabaseRepository {
 
     // ─── Sessions ────────────────────────────────────────
     public void saveSession(String setId, int cardsStudied, int knownCount) {
+        String uid = getCurrentUserId();
+        if (uid == null) return;
+        updateStreak();
         try {
-            String uid = getCurrentUserId();
-            if (uid == null) return;
             api.insertSession(getToken(), apiKey, new SessionBody(uid, setId, cardsStudied, knownCount)).execute();
-            updateStreak();
         } catch (Exception ignored) {}
     }
 
@@ -300,18 +320,51 @@ public class SupabaseRepository {
     }
 
     // ─── Streak ──────────────────────────────────────────
-    public int getCurrentStreak() { return prefs.getInt("streak", 0); }
+    private long localDayNumber() {
+        long offset = java.util.TimeZone.getDefault().getOffset(System.currentTimeMillis());
+        return (System.currentTimeMillis() + offset) / (1000L * 60 * 60 * 24);
+    }
+
+    public int getCurrentStreak() {
+        String uid = uid();
+        long lastStudy = prefs.getLong("last_study_date_" + uid, 0);
+        if (lastStudy == 0) return 0;
+        long offset = java.util.TimeZone.getDefault().getOffset(System.currentTimeMillis());
+        long today = (System.currentTimeMillis() + offset) / (1000L * 60 * 60 * 24);
+        long lastDay = (lastStudy + offset) / (1000L * 60 * 60 * 24);
+        long diff = today - lastDay;
+        if (diff > 1) {
+            prefs.edit().putInt("streak_" + uid, 0).apply();
+            return 0;
+        }
+        return prefs.getInt("streak_" + uid, 0);
+    }
 
     private void updateStreak() {
-        long lastStudy = prefs.getLong("last_study_date", 0);
-        long today = System.currentTimeMillis() / (1000 * 60 * 60 * 24);
-        long lastDay = lastStudy / (1000 * 60 * 60 * 24);
+        String uid = uid();
+        long lastStudy = prefs.getLong("last_study_date_" + uid, 0);
+        long today = localDayNumber();
+        long offset = java.util.TimeZone.getDefault().getOffset(System.currentTimeMillis());
+        long lastDay = lastStudy == 0 ? -1 : (lastStudy + offset) / (1000L * 60 * 60 * 24);
         long diff = today - lastDay;
         int streak;
-        if (diff == 0) streak = prefs.getInt("streak", 1);
-        else if (diff == 1) streak = prefs.getInt("streak", 0) + 1;
+        if (diff == 0) streak = prefs.getInt("streak_" + uid, 1);
+        else if (diff == 1) streak = prefs.getInt("streak_" + uid, 0) + 1;
         else streak = 1;
-        prefs.edit().putInt("streak", streak).putLong("last_study_date", System.currentTimeMillis()).apply();
+
+        Set<Long> days = getStudyDaySet();
+        days.add(today);
+        long cutoff = today - 30;
+        Set<Long> trimmed = new HashSet<>();
+        for (Long d : days) if (d >= cutoff) trimmed.add(d);
+        StringBuilder sb = new StringBuilder();
+        for (Long d : trimmed) { if (sb.length() > 0) sb.append(","); sb.append(d); }
+
+        prefs.edit()
+            .putInt("streak_" + uid, streak)
+            .putLong("last_study_date_" + uid, System.currentTimeMillis())
+            .putString("study_days_" + uid, sb.toString())
+            .apply();
     }
 
     // ─── Helpers ─────────────────────────────────────────

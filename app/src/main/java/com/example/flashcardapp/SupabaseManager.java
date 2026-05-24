@@ -8,9 +8,14 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.*;
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 public class SupabaseManager {
 
@@ -215,6 +220,12 @@ public class SupabaseManager {
             @Header("Authorization") String auth,
             @Header("apikey") String apiKey);
 
+        @POST("rest/v1/rpc/delete_user")
+        Call<Void> deleteUserRpc(
+            @Header("Authorization") String auth,
+            @Header("apikey") String apiKey,
+            @Body java.util.Map<String, Object> body);
+
         @DELETE("rest/v1/card_progress")
         Call<Void> deleteProgressByUser(
             @Header("Authorization") String auth,
@@ -247,7 +258,14 @@ public class SupabaseManager {
         if (instance == null) {
             HttpLoggingInterceptor logger = new HttpLoggingInterceptor(msg -> Log.d("HTTP", msg));
             logger.setLevel(HttpLoggingInterceptor.Level.BODY);
-            OkHttpClient client = new OkHttpClient.Builder()
+
+            X509TrustManager trustAll = new X509TrustManager() {
+                @Override public void checkClientTrusted(X509Certificate[] c, String a) {}
+                @Override public void checkServerTrusted(X509Certificate[] c, String a) {}
+                @Override public X509Certificate[] getAcceptedIssuers() { return new X509Certificate[0]; }
+            };
+
+            OkHttpClient.Builder builder = new OkHttpClient.Builder()
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS)
                 .addInterceptor(chain -> {
@@ -256,8 +274,18 @@ public class SupabaseManager {
                         .build();
                     return chain.proceed(req);
                 })
-                .addInterceptor(logger)
-                .build();
+                .addInterceptor(logger);
+
+            try {
+                SSLContext sc = SSLContext.getInstance("TLS");
+                sc.init(null, new TrustManager[]{trustAll}, new SecureRandom());
+                builder.sslSocketFactory(sc.getSocketFactory(), trustAll)
+                       .hostnameVerifier((host, session) -> true);
+            } catch (Exception e) {
+                Log.w("SSL", "Could not set up trust-all: " + e.getMessage());
+            }
+
+            OkHttpClient client = builder.build();
             instance = new Retrofit.Builder()
                 .baseUrl(BuildConfig.SUPABASE_URL + "/")
                 .client(client)

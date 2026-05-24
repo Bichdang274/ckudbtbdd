@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -27,10 +28,28 @@ public final class FragmentEditProfileBinding implements ViewBinding {
   public final ImageButton btnBack;
 
   @NonNull
+  public final Button btnCancel;
+
+  @NonNull
   public final Button btnSave;
 
   @NonNull
   public final TextInputEditText etName;
+
+  @NonNull
+  public final TextView genderKhac;
+
+  @NonNull
+  public final TextView genderKhongMuon;
+
+  @NonNull
+  public final TextView genderNam;
+
+  @NonNull
+  public final TextView genderNu;
+
+  @NonNull
+  public final LinearLayout layoutDob;
 
   @NonNull
   public final ProgressBar progressBar;
@@ -42,18 +61,31 @@ public final class FragmentEditProfileBinding implements ViewBinding {
   public final TextView tvBtnText;
 
   @NonNull
+  public final TextView tvDob;
+
+  @NonNull
   public final TextView tvEmail;
 
   private FragmentEditProfileBinding(@NonNull ScrollView rootView, @NonNull ImageButton btnBack,
-      @NonNull Button btnSave, @NonNull TextInputEditText etName, @NonNull ProgressBar progressBar,
-      @NonNull TextView tvAvatar, @NonNull TextView tvBtnText, @NonNull TextView tvEmail) {
+      @NonNull Button btnCancel, @NonNull Button btnSave, @NonNull TextInputEditText etName,
+      @NonNull TextView genderKhac, @NonNull TextView genderKhongMuon, @NonNull TextView genderNam,
+      @NonNull TextView genderNu, @NonNull LinearLayout layoutDob, @NonNull ProgressBar progressBar,
+      @NonNull TextView tvAvatar, @NonNull TextView tvBtnText, @NonNull TextView tvDob,
+      @NonNull TextView tvEmail) {
     this.rootView = rootView;
     this.btnBack = btnBack;
+    this.btnCancel = btnCancel;
     this.btnSave = btnSave;
     this.etName = etName;
+    this.genderKhac = genderKhac;
+    this.genderKhongMuon = genderKhongMuon;
+    this.genderNam = genderNam;
+    this.genderNu = genderNu;
+    this.layoutDob = layoutDob;
     this.progressBar = progressBar;
     this.tvAvatar = tvAvatar;
     this.tvBtnText = tvBtnText;
+    this.tvDob = tvDob;
     this.tvEmail = tvEmail;
   }
 
@@ -90,6 +122,12 @@ public final class FragmentEditProfileBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnCancel;
+      Button btnCancel = ViewBindings.findChildViewById(rootView, id);
+      if (btnCancel == null) {
+        break missingId;
+      }
+
       id = R.id.btnSave;
       Button btnSave = ViewBindings.findChildViewById(rootView, id);
       if (btnSave == null) {
@@ -99,6 +137,36 @@ public final class FragmentEditProfileBinding implements ViewBinding {
       id = R.id.etName;
       TextInputEditText etName = ViewBindings.findChildViewById(rootView, id);
       if (etName == null) {
+        break missingId;
+      }
+
+      id = R.id.genderKhac;
+      TextView genderKhac = ViewBindings.findChildViewById(rootView, id);
+      if (genderKhac == null) {
+        break missingId;
+      }
+
+      id = R.id.genderKhongMuon;
+      TextView genderKhongMuon = ViewBindings.findChildViewById(rootView, id);
+      if (genderKhongMuon == null) {
+        break missingId;
+      }
+
+      id = R.id.genderNam;
+      TextView genderNam = ViewBindings.findChildViewById(rootView, id);
+      if (genderNam == null) {
+        break missingId;
+      }
+
+      id = R.id.genderNu;
+      TextView genderNu = ViewBindings.findChildViewById(rootView, id);
+      if (genderNu == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutDob;
+      LinearLayout layoutDob = ViewBindings.findChildViewById(rootView, id);
+      if (layoutDob == null) {
         break missingId;
       }
 
@@ -120,14 +188,21 @@ public final class FragmentEditProfileBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvDob;
+      TextView tvDob = ViewBindings.findChildViewById(rootView, id);
+      if (tvDob == null) {
+        break missingId;
+      }
+
       id = R.id.tvEmail;
       TextView tvEmail = ViewBindings.findChildViewById(rootView, id);
       if (tvEmail == null) {
         break missingId;
       }
 
-      return new FragmentEditProfileBinding((ScrollView) rootView, btnBack, btnSave, etName,
-          progressBar, tvAvatar, tvBtnText, tvEmail);
+      return new FragmentEditProfileBinding((ScrollView) rootView, btnBack, btnCancel, btnSave,
+          etName, genderKhac, genderKhongMuon, genderNam, genderNu, layoutDob, progressBar,
+          tvAvatar, tvBtnText, tvDob, tvEmail);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

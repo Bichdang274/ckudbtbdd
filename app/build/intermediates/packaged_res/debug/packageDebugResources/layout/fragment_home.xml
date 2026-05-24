@@ -136,6 +136,76 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!-- Study Reminder Banner -->
+        <LinearLayout
+            android:id="@+id/bannerReminder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_info_card"
+            android:padding="14dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:text="🔔"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginEnd="12dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bật nhắc nhở học tập"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đừng để quên — nhắc lúc 20:00 mỗi ngày"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btnEnableReminder"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="Bật"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@drawable/bg_btn_gradient"
+                android:layout_marginStart="8dp"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <ImageButton
+                android:id="@+id/btnDismissReminder"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@null"
+                android:src="@drawable/ic_close"
+                android:tint="@color/text_secondary"
+                android:layout_marginStart="6dp"
+                android:contentDescription="Đóng"/>
+        </LinearLayout>
+
         <!-- Folders Section -->
         <LinearLayout
             android:id="@+id/sectionFolders"

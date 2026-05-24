@@ -61,7 +61,7 @@ public final class AppDatabase_Impl extends AppDatabase {
   @Override
   @NonNull
   protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(2) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(3) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`id` TEXT NOT NULL, `name` TEXT, `email` TEXT, `password` TEXT, `createdAt` TEXT, PRIMARY KEY(`id`))");
@@ -71,9 +71,9 @@ public final class AppDatabase_Impl extends AppDatabase {
         db.execSQL("CREATE TABLE IF NOT EXISTS `card_progress` (`cardId` TEXT NOT NULL, `setId` TEXT, `known` INTEGER NOT NULL, `repetitions` INTEGER NOT NULL, `easeFactor` REAL NOT NULL, `interval` INTEGER NOT NULL, `nextReviewDate` INTEGER NOT NULL, PRIMARY KEY(`cardId`))");
         db.execSQL("CREATE TABLE IF NOT EXISTS `set_progress` (`setId` TEXT NOT NULL, `knownCards` INTEGER NOT NULL, `totalCards` INTEGER NOT NULL, `lastStudied` INTEGER NOT NULL, PRIMARY KEY(`setId`))");
         db.execSQL("CREATE TABLE IF NOT EXISTS `study_sessions` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `setId` TEXT, `date` INTEGER NOT NULL, `cardsStudied` INTEGER NOT NULL, `knownCount` INTEGER NOT NULL)");
-        db.execSQL("CREATE TABLE IF NOT EXISTS `saved_words` (`id` TEXT NOT NULL, `word` TEXT, `phonetic` TEXT, `partOfSpeech` TEXT, `definition` TEXT, `example` TEXT, `savedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `saved_words` (`id` TEXT NOT NULL, `userId` TEXT, `word` TEXT, `phonetic` TEXT, `partOfSpeech` TEXT, `definition` TEXT, `example` TEXT, `savedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '998b308bf9c49c7431da44bffaf1112a')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c65a05b6a2c573ff7ba1cb8ec7fcf898')");
       }
 
       @Override
@@ -239,8 +239,9 @@ public final class AppDatabase_Impl extends AppDatabase {
                   + " Expected:\n" + _infoStudySessions + "\n"
                   + " Found:\n" + _existingStudySessions);
         }
-        final HashMap<String, TableInfo.Column> _columnsSavedWords = new HashMap<String, TableInfo.Column>(7);
+        final HashMap<String, TableInfo.Column> _columnsSavedWords = new HashMap<String, TableInfo.Column>(8);
         _columnsSavedWords.put("id", new TableInfo.Column("id", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsSavedWords.put("userId", new TableInfo.Column("userId", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSavedWords.put("word", new TableInfo.Column("word", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSavedWords.put("phonetic", new TableInfo.Column("phonetic", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsSavedWords.put("partOfSpeech", new TableInfo.Column("partOfSpeech", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -258,7 +259,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "998b308bf9c49c7431da44bffaf1112a", "a045f56d5cf997fb3919d21cb0c2a4f1");
+    }, "c65a05b6a2c573ff7ba1cb8ec7fcf898", "9bc80674b36eda8ed8f44f0d8818ef15");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;
